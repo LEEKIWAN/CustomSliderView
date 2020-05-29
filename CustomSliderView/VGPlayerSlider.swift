@@ -13,7 +13,7 @@ protocol VGPlayerSliderDelegate: class {
     func vgSliderTouchBegan(slider: VGPlayerSlider)
     func vgSliderValueChanged(slider: VGPlayerSlider, thumbXPoint: CGFloat)
     func vgSliderTouchEnd(slider: VGPlayerSlider)
-
+    
 }
 
 
@@ -22,7 +22,7 @@ class VGPlayerSlider: UISlider {
     // MARK: - variable
     
     weak var delegate: VGPlayerSliderDelegate?
-
+    
     
     public var isThumbHidden: Bool = false {
         didSet {
@@ -35,13 +35,10 @@ class VGPlayerSlider: UISlider {
             self.setProgress(progress, animated: false)
         }
     }
-
-    
-    //this version will return the x coordinate in relation to the UISlider frame
-     var thumbCenterX: CGFloat {
+    var thumbCenterX: CGFloat {
         return thumbBounds.midX
-     }
-
+    }
+    
     
     private var progressView = UIProgressView()
     
@@ -77,8 +74,9 @@ class VGPlayerSlider: UISlider {
         
         progressView.tintColor = .red
         progressView.trackTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2964201627)
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: 5)
         
-        self.addTarget(self, action: #selector(onSliderValChanged(slider:event:)), for: .valueChanged)
+        self.addTarget(self, action: #selector(onSliderValueChanged(slider:event:)), for: .valueChanged)
         
     }
     
@@ -90,8 +88,16 @@ class VGPlayerSlider: UISlider {
     // MARK: - UI
     
     private func configureProgressView(_ frame: CGRect) {
+        
         progressView.frame = frame
         insertSubview(progressView, at: 0)
+        
+        //        progressView.snp.makeConstraints { (make) in
+        //            make.leading.equalTo(0)
+        //            make.trailing.equalTo(0)
+        //            make.center.equalToSuperview()
+        //            make.height.equalTo(0.5)
+        //        }
     }
     
     func setThumbHidden(hidden: Bool) {
@@ -110,7 +116,7 @@ class VGPlayerSlider: UISlider {
     
     // MARK: - Event
     
-    @objc func onSliderValChanged(slider: UISlider, event: UIEvent) {
+    @objc func onSliderValueChanged(slider: UISlider, event: UIEvent) {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
@@ -130,12 +136,10 @@ class VGPlayerSlider: UISlider {
     func setRepeatStartPoint() {
         let center = CGFloat(progressView.progress) * progressView.frame.size.width
         repeatProgressView.frame = CGRect(x: center, y: progressView.frame.origin.y, width: 2, height: progressView.frame.size.height)
-
         repeatProgressView.trackTintColor = .clear
-
         self.insertSubview(repeatProgressView, aboveSubview: progressView)
     }
-
+    
     func setRepeatEndPoint() {
         let center = CGFloat(progressView.progress) * progressView.frame.size.width
         let progressWidth = center - repeatProgressView.frame.origin.x + 2

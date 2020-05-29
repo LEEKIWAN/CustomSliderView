@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,14 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5SS-EZ-gI6" customClass="VGPlayerSlider" customModule="CustomSliderView" customModuleProvider="target">
-                                <rect key="frame" x="8" y="802" width="398" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0aX-Mo-HgO"/>
-                                </constraints>
-                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XN7-fB-p2P" userLabel="small">
                                 <rect key="frame" x="10" y="817" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -74,6 +66,21 @@
                                     <constraint firstAttribute="height" constant="200" id="ika-FG-ckb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbO-PU-MDf">
+                                <rect key="frame" x="0.0" y="1096" width="414" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="ihi-4x-djj"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5SS-EZ-gI6" customClass="VGPlayerSlider" customModule="CustomSliderView" customModuleProvider="target">
+                                <rect key="frame" x="8" y="802" width="398" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0aX-Mo-HgO"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -83,26 +90,30 @@
                             <constraint firstItem="Xsk-2i-ucI" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="66j-f0-EUQ"/>
                             <constraint firstItem="pga-BI-0Bj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9aM-GW-wk5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rfA-Vy-dR4" secondAttribute="trailing" id="9ah-K3-eLd"/>
-                            <constraint firstAttribute="bottom" secondItem="pga-BI-0Bj" secondAttribute="bottom" constant="-200" id="Gq0-cz-lEP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pga-BI-0Bj" secondAttribute="bottom" constant="-234" id="Gq0-cz-lEP"/>
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H4L-eA-qve"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pga-BI-0Bj" secondAttribute="trailing" id="H88-Ty-OE9"/>
-                            <constraint firstItem="pga-BI-0Bj" firstAttribute="top" secondItem="5SS-EZ-gI6" secondAttribute="bottom" priority="999" id="JBy-z0-inH"/>
+                            <constraint firstItem="pga-BI-0Bj" firstAttribute="top" secondItem="5SS-EZ-gI6" secondAttribute="bottom" priority="999" constant="-14" id="JBy-z0-inH"/>
                             <constraint firstItem="rfA-Vy-dR4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jtr-Ue-ZMt"/>
                             <constraint firstItem="Xsk-2i-ucI" firstAttribute="leading" secondItem="e4Y-Bw-5H4" secondAttribute="trailing" constant="20" id="NP0-2Q-F2o"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="centerX" secondItem="rfA-Vy-dR4" secondAttribute="centerX" priority="999" id="TbQ-QR-JCp"/>
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="top" secondItem="rfA-Vy-dR4" secondAttribute="bottom" constant="10" id="UNB-pN-0Wb"/>
+                            <constraint firstItem="NbO-PU-MDf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XZ2-CO-ctr"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="leading" secondItem="5SS-EZ-gI6" secondAttribute="leading" id="cIH-c8-8hx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5SS-EZ-gI6" secondAttribute="trailing" constant="10" id="eNV-xE-QDX"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="centerY" secondItem="5SS-EZ-gI6" secondAttribute="centerY" id="ene-kJ-PTs"/>
                             <constraint firstItem="4hw-gw-oVW" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="kyq-gg-6GP"/>
+                            <constraint firstItem="NbO-PU-MDf" firstAttribute="top" secondItem="pga-BI-0Bj" secondAttribute="bottom" id="mvu-1m-p7m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e4Y-Bw-5H4" secondAttribute="bottom" constant="10" id="ohh-Bj-Q7C"/>
                             <constraint firstItem="e4Y-Bw-5H4" firstAttribute="top" secondItem="5SS-EZ-gI6" secondAttribute="bottom" constant="20" id="pFK-Sr-hbe"/>
                             <constraint firstItem="0sU-Ie-Bud" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pkp-kO-Cxl"/>
                             <constraint firstItem="4hw-gw-oVW" firstAttribute="leading" secondItem="Xsk-2i-ucI" secondAttribute="trailing" constant="30" id="roq-wa-3Vk"/>
+                            <constraint firstAttribute="trailing" secondItem="NbO-PU-MDf" secondAttribute="trailing" id="vwE-jT-xT1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bookmarkView" destination="pga-BI-0Bj" id="vqF-8g-J1O"/>
                         <outlet property="consBookmarkBottomMargin" destination="Gq0-cz-lEP" id="gSN-xj-vNX"/>
                         <outlet property="consBottomMargin" destination="UNB-pN-0Wb" id="hUC-QM-EfJ"/>
                         <outlet property="consLeading" destination="cIH-c8-8hx" id="TpJ-Pc-jbh"/>

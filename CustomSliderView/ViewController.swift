@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, VGPlayerSliderDelegate {
 
+    @IBOutlet weak var bookmarkView: BookmarkView!
+
+    
     @IBOutlet weak var thumbnailView: ProgressThumbnailView!
     @IBOutlet weak var sliderView: VGPlayerSlider!
     @IBOutlet weak var consLeading: NSLayoutConstraint!
@@ -27,6 +30,7 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
     }
         
     @IBAction func onBookmarkToggleTouched(_ sender: UIButton) {
+        bookmarkView.isShown = !bookmarkView.isShown
     }
     
     @IBAction func onCreateStartPoint(_ sender: UIButton) {
