@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressThumbnailView" customModule="CustomSliderView" customModuleProvider="target">
+            <connections>
+                <outlet property="currentTimeLabel" destination="19N-oR-Cyu" id="f8X-eQ-WwW"/>
+                <outlet property="thumbnailImageView" destination="Qcm-5r-45E" id="sIx-JO-e9u"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="274" height="256"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="Qcm-5r-45E">
+                    <rect key="frame" x="0.0" y="0.0" width="274" height="154"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Qcm-5r-45E" secondAttribute="height" multiplier="16:9" id="T5r-ZP-m4Q"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19N-oR-Cyu">
+                    <rect key="frame" x="116" y="161" width="42" height="88"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="19N-oR-Cyu" secondAttribute="bottom" constant="7" id="3aD-nZ-TNS"/>
+                <constraint firstItem="Qcm-5r-45E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4vf-a3-2gH"/>
+                <constraint firstItem="19N-oR-Cyu" firstAttribute="top" secondItem="Qcm-5r-45E" secondAttribute="bottom" constant="7" id="Akn-en-DLr"/>
+                <constraint firstAttribute="trailing" secondItem="Qcm-5r-45E" secondAttribute="trailing" id="HCl-9q-g9w"/>
+                <constraint firstItem="19N-oR-Cyu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gEf-nl-dRT"/>
+                <constraint firstItem="Qcm-5r-45E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jhX-Tz-act"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="36.231884057971016" y="411.16071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="test" width="239" height="211"/>
+    </resources>
+</document>
