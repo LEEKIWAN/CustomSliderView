@@ -35,6 +35,7 @@ class VGPlayerSlider: UISlider {
             self.setProgress(progress, animated: false)
         }
     }
+    
     var thumbCenterX: CGFloat {
         return thumbBounds.midX
     }

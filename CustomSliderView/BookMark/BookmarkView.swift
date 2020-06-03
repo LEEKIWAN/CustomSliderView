@@ -49,7 +49,7 @@ class BookmarkView: UIView {
     private func show() {
         guard let vc = parentViewController as? ViewController else { return }
         
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.2) {
             vc.consBookmarkBottomMargin.constant = 0
             vc.view.layoutIfNeeded()
         }
@@ -61,7 +61,7 @@ class BookmarkView: UIView {
         guard let vc = parentViewController as? ViewController else { return }
         vc.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.2) {
             vc.consBookmarkBottomMargin.constant = -234
 
             vc.view.layoutIfNeeded()
