@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController, VGPlayerSliderDelegate {
-
+    
     @IBOutlet weak var bookmarkView: BookmarkView!
-
+    
     
     @IBOutlet weak var thumbnailView: ProgressThumbnailView!
     @IBOutlet weak var sliderView: VGPlayerSlider!
@@ -28,7 +28,7 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
         sliderView.delegate = self
         
     }
-        
+    
     @IBAction func onBookmarkToggleTouched(_ sender: UIButton) {
         bookmarkView.isShown = !bookmarkView.isShown
     }
@@ -43,6 +43,8 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
     
     @IBAction func endPoint(_ sender: UIButton) {
         sliderView.setRepeatEndPoint()
+        
+        
     }
     
     // MARK : - VGPlayerSliderDelegate
@@ -58,5 +60,16 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
     
     func vgSliderTouchEnd(slider: VGPlayerSlider) {
         thumbnailView.isShown = false
+    }
+    
+    
+    @IBAction func onDoubleTapTouched(_ sender: UITapGestureRecognizer) {
+        
+        let location = sender.location(in: self.view)
+        if location.x > self.view.bounds.width / 2 {
+            print("right")
+        } else {
+            print("left")
+        }
     }
 }

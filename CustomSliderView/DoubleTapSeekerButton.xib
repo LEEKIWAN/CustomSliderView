@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DoubleTapSeekerButton" customModule="CustomSliderView" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundButtonView" destination="9jb-0f-E1L" id="aOn-Om-rfI"/>
+                <outlet property="consLeading" destination="XyI-B2-Ea8" id="hCT-pn-wl9"/>
+                <outlet property="secondLabel" destination="T31-pg-HO9" id="XdR-Zo-erj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="278" height="177"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jb-0f-E1L">
+                    <rect key="frame" x="129" y="80" width="19" height="19"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNW-f7-btB">
+                    <rect key="frame" x="126" y="75" width="26" height="27"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="goforward" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonTouched:" destination="-1" eventType="touchUpInside" id="7Je-UO-GX5"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T31-pg-HO9">
+                    <rect key="frame" x="152" y="80" width="16" height="17"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lNW-f7-btB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3oK-xZ-Qfv"/>
+                <constraint firstItem="9jb-0f-E1L" firstAttribute="top" secondItem="lNW-f7-btB" secondAttribute="top" constant="5" id="Bmm-wX-rgn"/>
+                <constraint firstItem="9jb-0f-E1L" firstAttribute="trailing" secondItem="lNW-f7-btB" secondAttribute="trailing" constant="-4" id="PX9-Od-cxS"/>
+                <constraint firstItem="lNW-f7-btB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Pkp-LE-YGF"/>
+                <constraint firstItem="9jb-0f-E1L" firstAttribute="leading" secondItem="lNW-f7-btB" secondAttribute="leading" constant="3" id="QC3-EN-MvJ"/>
+                <constraint firstItem="T31-pg-HO9" firstAttribute="leading" secondItem="lNW-f7-btB" secondAttribute="trailing" id="XyI-B2-Ea8"/>
+                <constraint firstItem="T31-pg-HO9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cYB-gy-ltA"/>
+                <constraint firstItem="9jb-0f-E1L" firstAttribute="bottom" secondItem="lNW-f7-btB" secondAttribute="bottom" constant="-3" id="d6u-T9-0aI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="39.130434782608695" y="372.65625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="goforward" catalog="system" width="121" height="128"/>
+    </resources>
+</document>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834889252488831D009C4113 /* DoubleTapSeekerButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 834889242488831D009C4113 /* DoubleTapSeekerButton.xib */; };
+		8348892724888329009C4113 /* DoubleTapSeekerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348892624888329009C4113 /* DoubleTapSeekerButton.swift */; };
 		839B6272247CFDCC0042DDA1 /* VGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B6271247CFDCC0042DDA1 /* VGProgressView.swift */; };
 		83C4E90D2480C54F002033BB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83C4E90C2480C54F002033BB /* SnapKit */; };
 		83C4E90F2480C570002033BB /* ProgressThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */; };
@@ -24,11 +26,11 @@
 		83EBD570247BBC9900973E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EBD56F247BBC9900973E4A /* Assets.xcassets */; };
 		83EBD573247BBC9900973E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EBD571247BBC9900973E4A /* LaunchScreen.storyboard */; };
 		83EBD585247CA04900973E4A /* VGPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EBD583247CA04900973E4A /* VGPlayerSlider.swift */; };
-		83F042602487876B000BC8C2 /* ThumbnailSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F0425F2487876B000BC8C2 /* ThumbnailSliderView.xib */; };
-		83F0426224878775000BC8C2 /* ThumbnailSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F0426124878775000BC8C2 /* ThumbnailSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		834889242488831D009C4113 /* DoubleTapSeekerButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoubleTapSeekerButton.xib; sourceTree = "<group>"; };
+		8348892624888329009C4113 /* DoubleTapSeekerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapSeekerButton.swift; sourceTree = "<group>"; };
 		839B6271247CFDCC0042DDA1 /* VGProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGProgressView.swift; sourceTree = "<group>"; };
 		83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressThumbnailView.swift; sourceTree = "<group>"; };
 		83C4E9102480D14F002033BB /* ProgressThumbnailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressThumbnailView.xib; sourceTree = "<group>"; };
@@ -47,8 +49,6 @@
 		83EBD572247BBC9900973E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83EBD574247BBC9900973E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83EBD583247CA04900973E4A /* VGPlayerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGPlayerSlider.swift; sourceTree = "<group>"; };
-		83F0425F2487876B000BC8C2 /* ThumbnailSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThumbnailSliderView.xib; sourceTree = "<group>"; };
-		83F0426124878775000BC8C2 /* ThumbnailSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +93,8 @@
 		83EBD565247BBC9600973E4A /* CustomSliderView */ = {
 			isa = PBXGroup;
 			children = (
-				83F0425F2487876B000BC8C2 /* ThumbnailSliderView.xib */,
-				83F0426124878775000BC8C2 /* ThumbnailSliderView.swift */,
+				834889242488831D009C4113 /* DoubleTapSeekerButton.xib */,
+				8348892624888329009C4113 /* DoubleTapSeekerButton.swift */,
 				83C4E91C2480ED13002033BB /* BookMark */,
 				83EBD566247BBC9600973E4A /* AppDelegate.swift */,
 				83EBD568247BBC9600973E4A /* SceneDelegate.swift */,
@@ -177,13 +177,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				834889252488831D009C4113 /* DoubleTapSeekerButton.xib in Resources */,
 				83C4E9202480ED39002033BB /* BookmarkCollectionViewCell.xib in Resources */,
 				83EBD573247BBC9900973E4A /* LaunchScreen.storyboard in Resources */,
 				83EBD570247BBC9900973E4A /* Assets.xcassets in Resources */,
 				83C4E9112480D14F002033BB /* ProgressThumbnailView.xib in Resources */,
 				83EBD56E247BBC9600973E4A /* Main.storyboard in Resources */,
 				83C4E9152480DABF002033BB /* BookmarkView.xib in Resources */,
-				83F042602487876B000BC8C2 /* ThumbnailSliderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8348892724888329009C4113 /* DoubleTapSeekerButton.swift in Sources */,
 				83C4E90F2480C570002033BB /* ProgressThumbnailView.swift in Sources */,
 				83EBD56B247BBC9600973E4A /* ViewController.swift in Sources */,
 				83C4E91B2480E811002033BB /* UISlider+.swift in Sources */,
@@ -201,7 +202,6 @@
 				83C4E91F2480ED39002033BB /* BookmarkCollectionViewCell.swift in Sources */,
 				83EBD567247BBC9600973E4A /* AppDelegate.swift in Sources */,
 				83C4E9192480E2DD002033BB /* UIView+.swift in Sources */,
-				83F0426224878775000BC8C2 /* ThumbnailSliderView.swift in Sources */,
 				83EBD569247BBC9600973E4A /* SceneDelegate.swift in Sources */,
 				83C4E9172480DAD1002033BB /* BookmarkView.swift in Sources */,
 				83EBD585247CA04900973E4A /* VGPlayerSlider.swift in Sources */,

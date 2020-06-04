@@ -38,7 +38,7 @@
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="PfX-4p-nAj" firstAttribute="leading" secondItem="8xU-nr-r1F" secondAttribute="leading" constant="13" id="4mm-mC-gTb"/>
                 <constraint firstItem="RHq-lo-8AF" firstAttribute="top" secondItem="PfX-4p-nAj" secondAttribute="bottom" constant="13" id="6fF-OO-6Ly"/>

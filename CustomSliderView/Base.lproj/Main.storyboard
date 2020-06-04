@@ -15,14 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XN7-fB-p2P" userLabel="small">
-                                <rect key="frame" x="10" y="817" width="0.0" height="0.0"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" id="ORA-cK-7ia"/>
-                                    <constraint firstAttribute="height" id="yvO-zX-zOw"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4Y-Bw-5H4">
                                 <rect key="frame" x="20" y="852" width="47" height="0.0"/>
                                 <state key="normal" title="Toggle"/>
@@ -81,10 +73,28 @@
                                 <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XN7-fB-p2P" userLabel="Thumb Position">
+                                <rect key="frame" x="10" y="817" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="ORA-cK-7ia"/>
+                                    <constraint firstAttribute="height" id="yvO-zX-zOw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-kA-Cqv" customClass="DoubleTapSeekerButton" customModule="CustomSliderView" customModuleProvider="target">
+                                <rect key="frame" x="147" y="428" width="120" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="l1z-K6-tp6"/>
+                                    <constraint firstAttribute="width" constant="120" id="zfQ-CH-jn8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0sU-Ie-Bud" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0KH-zW-hYR"/>
+                            <constraint firstItem="RkA-kA-Cqv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0RU-3g-RZL"/>
                             <constraint firstItem="e4Y-Bw-5H4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1dw-Yv-x7n"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4hw-gw-oVW" secondAttribute="trailing" symbolic="YES" id="5nB-hc-UJ6"/>
                             <constraint firstItem="Xsk-2i-ucI" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="66j-f0-EUQ"/>
@@ -100,6 +110,7 @@
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="top" secondItem="rfA-Vy-dR4" secondAttribute="bottom" constant="10" id="UNB-pN-0Wb"/>
                             <constraint firstItem="NbO-PU-MDf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XZ2-CO-ctr"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="leading" secondItem="5SS-EZ-gI6" secondAttribute="leading" id="cIH-c8-8hx"/>
+                            <constraint firstItem="RkA-kA-Cqv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cTu-Ao-3Re"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5SS-EZ-gI6" secondAttribute="trailing" constant="10" id="eNV-xE-QDX"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="centerY" secondItem="5SS-EZ-gI6" secondAttribute="centerY" id="ene-kJ-PTs"/>
                             <constraint firstItem="4hw-gw-oVW" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="kyq-gg-6GP"/>
@@ -111,6 +122,9 @@
                             <constraint firstAttribute="trailing" secondItem="NbO-PU-MDf" secondAttribute="trailing" id="vwE-jT-xT1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wxc-ox-g32" appends="YES" id="gJU-oA-Jid"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bookmarkView" destination="pga-BI-0Bj" id="vqF-8g-J1O"/>
@@ -123,6 +137,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer delaysTouchesEnded="NO" numberOfTapsRequired="2" id="wxc-ox-g32">
+                    <connections>
+                        <action selector="onDoubleTapTouched:" destination="BYZ-38-t0r" id="HnJ-Xg-RzU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
         </scene>
