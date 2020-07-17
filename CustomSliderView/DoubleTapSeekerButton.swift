@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import SnapKit
 
 class DoubleTapSeekerButton: UIView {
     
-    @IBOutlet weak var backgroundButtonView: UIView!
-    @IBOutlet weak var consLeading: NSLayoutConstraint!
+    let fadeAnimationView: UIView = UIView()
     
-    @IBOutlet weak var seekButton: UIButton!
-    @IBOutlet weak var secondLabel: UILabel!
+    let seekButton: UIButton = UIButton()
+    let secondLabel: UILabel = UILabel()
     
     var animator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 1, curve: .linear)
+    
+    var labelConstraint: Constraint? = nil
+    
     
     //MARK: - Func
     override init(frame: CGRect) {
@@ -33,25 +36,59 @@ class DoubleTapSeekerButton: UIView {
         setEvent()
     }
     
-    private func setUI() {
-        backgroundButtonView.layer.cornerRadius = backgroundButtonView.frame.size.height / 2
+    private func setNib() {
+        addSubview(fadeAnimationView)
+        addSubview(seekButton)
+        addSubview(secondLabel)
+        
+        seekButton.snp.makeConstraints { (maker) in
+            maker.centerX.equalToSuperview()
+            maker.centerY.equalToSuperview()
+            maker.width.equalTo(35)
+            maker.height.equalTo(35)
+        }
+        
+        fadeAnimationView.snp.makeConstraints { (maker) in
+            maker.edges.equalTo(seekButton).inset(UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+        }
+        
+        secondLabel.snp.makeConstraints { (maker) in
+            maker.centerY.equalTo(seekButton)
+            labelConstraint = maker.leading.equalTo(seekButton.snp.trailing).constraint
+        }
+        
     }
     
-    private func setNib() {
-        let view = Bundle.main.loadNibNamed("DoubleTapSeekerButton", owner: self, options: nil)?.first as! UIView
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(view)
+    
+    private func setUI() {
+        
+        seekButton.setImage(#imageLiteral(resourceName: "iconmonstr-redo-7-240.png"), for: .normal)
+        seekButton.tintColor = .white
+        
+        fadeAnimationView.layer.cornerRadius = 31.0 / 2
+        fadeAnimationView.layer.masksToBounds = true
+        fadeAnimationView.backgroundColor = .white
+        fadeAnimationView.alpha = 0
+        
+        secondLabel.text = "10"
+        secondLabel.textColor = .white
+        secondLabel.alpha = 0
+        
+        secondLabel.font = secondLabel.font.withSize(18)
+        
+//        self.backgroundColor = .blue
     }
+    
     
     private func setEvent() {
+        seekButton.addTarget(self, action: #selector(onButtonTouched(_:)), for: .touchUpInside)
     }
     
     private func setShown(_ shown: Bool) {
         //        shown ? show() : hide()
     }
     
-    @IBAction func onButtonTouched(_ sender: UIButton) {
+    @objc func onButtonTouched(_ sender: UIButton) {
         if animator.isRunning {
             animator.fractionComplete = 0.0
         }
@@ -62,11 +99,13 @@ class DoubleTapSeekerButton: UIView {
     }
     
     func createAnimator() {
+        
         animator = UIViewPropertyAnimator(duration: 1, curve: .linear) {
             UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.0) {
-                    self.backgroundButtonView.alpha = 1
-                    self.consLeading.constant = 0
+                    self.fadeAnimationView.alpha = 1
+                    //                    self.consLeading.constant = 0
+                    self.labelConstraint?.update(offset: 0)
                     self.seekButton.transform = CGAffineTransform(rotationAngle: 0)
                 }
                 
@@ -76,7 +115,7 @@ class DoubleTapSeekerButton: UIView {
                     t = t.scaledBy(x: 0.8, y: 0.8)
                     
                     self.seekButton.transform = t
-
+                    
                     self.layoutIfNeeded()
                 }
                 
@@ -92,19 +131,22 @@ class DoubleTapSeekerButton: UIView {
                 
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.2) {
                     
-                    self.backgroundButtonView.alpha = 0
-                    self.consLeading.constant = 20
+                    self.fadeAnimationView.alpha = 0
+                    //                    self.consLeading.constant = 20
+                    self.labelConstraint?.update(offset: 20)
                     self.secondLabel.alpha = 1
                     self.layoutIfNeeded()
                 }
                 
                 UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2) {
-                    self.consLeading.constant = 40
+                    //                    self.consLeading.constant = 40
+                    self.labelConstraint?.update(offset: 40)
                     self.secondLabel.alpha = 0
                     self.layoutIfNeeded()
                 }
             }) { (completion: Bool) in
-                self.consLeading.constant = 0
+                //                self.consLeading.constant = 0
+                self.labelConstraint?.update(offset: 0)
             }
         }
     }

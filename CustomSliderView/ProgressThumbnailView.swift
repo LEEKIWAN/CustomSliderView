@@ -31,6 +31,7 @@ class ProgressThumbnailView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setNib()
+        setUI()
         setEvent()
     }
     
@@ -38,11 +39,6 @@ class ProgressThumbnailView: UIView {
         addSubview(thumbnailImageView)
         addSubview(currentTimeLabel)
         
-        thumbnailImageView.contentMode = .scaleAspectFill
-        thumbnailImageView.layer.masksToBounds = true
-        thumbnailImageView.image = #imageLiteral(resourceName: "test")
-        
-        currentTimeLabel.text = "00:00"
         
         thumbnailImageView.snp.makeConstraints { (maker) in
             maker.top.equalToSuperview()
@@ -51,11 +47,20 @@ class ProgressThumbnailView: UIView {
             maker.height.equalTo(thumbnailImageView.snp.width).multipliedBy(9.0 / 16.0)
         }
         
+        
         currentTimeLabel.snp.makeConstraints { (maker) in
             maker.bottom.equalToSuperview().offset(-7)
             maker.top.equalTo(thumbnailImageView.snp.bottom).offset(7)
             maker.centerX.equalToSuperview()
         }
+    }
+    
+    private func setUI() {
+        thumbnailImageView.contentMode = .scaleAspectFill
+        thumbnailImageView.layer.masksToBounds = true
+        thumbnailImageView.image = #imageLiteral(resourceName: "test")
+        
+        currentTimeLabel.text = "00:00"
     }
     
     private func setEvent() {

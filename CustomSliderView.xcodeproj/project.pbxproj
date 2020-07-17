@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		834889252488831D009C4113 /* DoubleTapSeekerButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 834889242488831D009C4113 /* DoubleTapSeekerButton.xib */; };
 		8348892724888329009C4113 /* DoubleTapSeekerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348892624888329009C4113 /* DoubleTapSeekerButton.swift */; };
 		839B6272247CFDCC0042DDA1 /* VGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B6271247CFDCC0042DDA1 /* VGProgressView.swift */; };
 		83C4E90D2480C54F002033BB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83C4E90C2480C54F002033BB /* SnapKit */; };
@@ -28,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		834889242488831D009C4113 /* DoubleTapSeekerButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoubleTapSeekerButton.xib; sourceTree = "<group>"; };
 		8348892624888329009C4113 /* DoubleTapSeekerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapSeekerButton.swift; sourceTree = "<group>"; };
 		839B6271247CFDCC0042DDA1 /* VGProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGProgressView.swift; sourceTree = "<group>"; };
 		83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressThumbnailView.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		83EBD565247BBC9600973E4A /* CustomSliderView */ = {
 			isa = PBXGroup;
 			children = (
-				834889242488831D009C4113 /* DoubleTapSeekerButton.xib */,
 				8348892624888329009C4113 /* DoubleTapSeekerButton.swift */,
 				83C4E91C2480ED13002033BB /* BookMark */,
 				83EBD566247BBC9600973E4A /* AppDelegate.swift */,
@@ -174,7 +171,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834889252488831D009C4113 /* DoubleTapSeekerButton.xib in Resources */,
 				83C4E9202480ED39002033BB /* BookmarkCollectionViewCell.xib in Resources */,
 				83EBD573247BBC9900973E4A /* LaunchScreen.storyboard in Resources */,
 				83EBD570247BBC9900973E4A /* Assets.xcassets in Resources */,
