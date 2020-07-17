@@ -17,7 +17,11 @@ class VGProgressView: UIProgressView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        // Drawing code
+        
+//        self.tintColor = .red
+//        self.backgroundColor = .red
+        self.trackTintColor = .red
+        
         startView.frame = CGRect(x: 0, y: 0, width: 2, height: self.frame.size.height)
         endView.frame = CGRect(x: self.frame.size.width - 2, y: 0, width: 2, height: self.frame.size.height)
         

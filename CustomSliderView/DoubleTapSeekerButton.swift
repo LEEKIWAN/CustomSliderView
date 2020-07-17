@@ -13,10 +13,10 @@ class DoubleTapSeekerButton: UIView {
     @IBOutlet weak var backgroundButtonView: UIView!
     @IBOutlet weak var consLeading: NSLayoutConstraint!
     
+    @IBOutlet weak var seekButton: UIButton!
     @IBOutlet weak var secondLabel: UILabel!
     
-    var animator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear)
-
+    var animator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 1, curve: .linear)
     
     //MARK: - Func
     override init(frame: CGRect) {
@@ -45,9 +45,6 @@ class DoubleTapSeekerButton: UIView {
     }
     
     private func setEvent() {
-//        animator.addAnimations {
-//            <#code#>
-//        }
     }
     
     private func setShown(_ shown: Bool) {
@@ -55,52 +52,70 @@ class DoubleTapSeekerButton: UIView {
     }
     
     @IBAction func onButtonTouched(_ sender: UIButton) {
-//        self.backgroundButtonView.alpha = 1
-//        self.consLeading.constant = 0
-//        self.layoutIfNeeded()
-//
-//        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
-//            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.1) {
-//                self.backgroundButtonView.alpha = 0
-//                self.consLeading.constant = 20
-//                self.secondLabel.alpha = 1
-//
-//                self.layoutIfNeeded()
-//            }
-//
-//            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1) {
-//                self.consLeading.constant = 40
-//                self.secondLabel.alpha = 0
-//                self.layoutIfNeeded()
-//            }
-//        }, completion: nil)
-
         
         
+        if animator.isRunning {
+//            animator.finishAnimation(at: .start)
+//            animator.stopAnimation(true)
+//            createAnimator()
+            animator.fractionComplete = 0.0
+        
+        }
+        else {
+            createAnimator()
+            animator.startAnimation()
+        }
+        
+        
+        //        animator?.startAnimation()
+    }
+    
+    func createAnimator() {
         animator = UIViewPropertyAnimator(duration: 1, curve: .linear) {
-             UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.1) {
-                    self.backgroundButtonView.alpha = 0
-                    self.consLeading.constant = 20
-                    self.secondLabel.alpha = 1
+            UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.0) {
+                    self.backgroundButtonView.alpha = 1
+                    self.consLeading.constant = 0
+                    self.seekButton.transform = CGAffineTransform(rotationAngle: 0)
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.05) {
+                    var t = CGAffineTransform.identity
+                    t = t.rotated(by: CGFloat.pi / 4)
+                    t = t.scaledBy(x: 0.8, y: 0.8)
                     
+                    self.seekButton.transform = t
+
                     self.layoutIfNeeded()
                 }
                 
-                UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1) {
+                UIView.addKeyframe(withRelativeStartTime: 0.05, relativeDuration: 0.15) {
+                    var t = CGAffineTransform.identity
+                    t = t.rotated(by: 0)
+                    t = t.scaledBy(x: 1, y: 1)
+                    
+                    self.seekButton.transform = t
+                    self.layoutIfNeeded()
+                }
+                
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.2) {
+                    
+                    self.backgroundButtonView.alpha = 0
+                    self.consLeading.constant = 20
+                    self.secondLabel.alpha = 1
+                    self.layoutIfNeeded()
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2) {
                     self.consLeading.constant = 40
                     self.secondLabel.alpha = 0
                     self.layoutIfNeeded()
                 }
-             }) { (completion: Bool) in
+            }) { (completion: Bool) in
                 self.consLeading.constant = 0
-                
             }
         }
-        
-        animator.startAnimation()
-        
-        
     }
 }
 

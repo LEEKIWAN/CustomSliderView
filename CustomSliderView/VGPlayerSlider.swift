@@ -16,7 +16,6 @@ protocol VGPlayerSliderDelegate: class {
     
 }
 
-
 class VGPlayerSlider: UISlider {
     
     // MARK: - variable
@@ -71,9 +70,9 @@ class VGPlayerSlider: UISlider {
     }
     
     private func configureSlider() {
-        self.thumbTintColor = .red
+        self.thumbTintColor = .blue
         
-        progressView.tintColor = .red
+        progressView.tintColor = .blue
         progressView.trackTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2964201627)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 5)
         
@@ -146,6 +145,11 @@ class VGPlayerSlider: UISlider {
         let progressWidth = center - repeatProgressView.frame.origin.x + 2
         
         repeatProgressView.frame = CGRect(x: repeatProgressView.frame.origin.x, y: progressView.frame.origin.y, width: progressWidth, height: progressView.frame.size.height)
+        
+        
+        progressView.backgroundColor = .brown
+        progressView.progressTintColor = .clear
+//        progressView.backgroundColor = .brown
     }
     
 }
