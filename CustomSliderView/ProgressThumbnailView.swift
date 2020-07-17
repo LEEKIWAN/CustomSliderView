@@ -10,15 +10,16 @@ import UIKit
 import SnapKit
 class ProgressThumbnailView: UIView {
     
+    
     var isShown: Bool = false {
         didSet {
             self.setShown(isShown)
         }
     }
     
-    @IBOutlet weak var thumbnailImageView: UIImageView!
+    var thumbnailImageView: UIImageView = UIImageView()
     
-    @IBOutlet weak var currentTimeLabel: UILabel!
+    var currentTimeLabel: UILabel = UILabel()
     
     //MARK: - Func
     override init(frame: CGRect) {
@@ -34,10 +35,27 @@ class ProgressThumbnailView: UIView {
     }
     
     private func setNib() {
-        let view = Bundle.main.loadNibNamed("ProgressThumbnailView", owner: self, options: nil)?.first as! UIView
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(view)
+        addSubview(thumbnailImageView)
+        addSubview(currentTimeLabel)
+        
+        thumbnailImageView.contentMode = .scaleAspectFill
+        thumbnailImageView.layer.masksToBounds = true
+        thumbnailImageView.image = #imageLiteral(resourceName: "test")
+        
+        currentTimeLabel.text = "00:00"
+        
+        thumbnailImageView.snp.makeConstraints { (maker) in
+            maker.top.equalToSuperview()
+            maker.trailing.equalToSuperview()
+            maker.leading.equalToSuperview()
+            maker.height.equalTo(thumbnailImageView.snp.width).multipliedBy(9.0 / 16.0)
+        }
+        
+        currentTimeLabel.snp.makeConstraints { (maker) in
+            maker.bottom.equalToSuperview().offset(-7)
+            maker.top.equalTo(thumbnailImageView.snp.bottom).offset(7)
+            maker.centerX.equalToSuperview()
+        }
     }
     
     private func setEvent() {

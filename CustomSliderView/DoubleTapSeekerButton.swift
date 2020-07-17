@@ -52,22 +52,13 @@ class DoubleTapSeekerButton: UIView {
     }
     
     @IBAction func onButtonTouched(_ sender: UIButton) {
-        
-        
         if animator.isRunning {
-//            animator.finishAnimation(at: .start)
-//            animator.stopAnimation(true)
-//            createAnimator()
             animator.fractionComplete = 0.0
-        
         }
         else {
             createAnimator()
             animator.startAnimation()
         }
-        
-        
-        //        animator?.startAnimation()
     }
     
     func createAnimator() {
