@@ -8,8 +8,8 @@
 
 import UIKit
 import SnapKit
-class ProgressThumbnailView: UIView {
-    
+
+class ProgressThumbnailView: UIView {    
     
     var isShown: Bool = false {
         didSet {
@@ -17,9 +17,9 @@ class ProgressThumbnailView: UIView {
         }
     }
     
-    var thumbnailImageView: UIImageView = UIImageView()
+    var thumbnailImageView = UIImageView()
     
-    var currentTimeLabel: UILabel = UILabel()
+    var currentTimeLabel = UILabel()
     
     //MARK: - Func
     override init(frame: CGRect) {
@@ -75,7 +75,7 @@ class ProgressThumbnailView: UIView {
         guard let vc = parentViewController as? ViewController else { return }
         
         UIView.animate(withDuration: 0.1) {
-            vc.consWidth.constant = 200
+            vc.consWidth.constant = 230
             vc.consBottomMargin.constant = 20
             
             vc.thumbnailView.alpha = 1

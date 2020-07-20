@@ -22,11 +22,15 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
     
     @IBOutlet open weak var consBookmarkBottomMargin: NSLayoutConstraint!
     
+    @IBOutlet weak var seekerButton: DoubleTapSeekerButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sliderView.delegate = self
         
+        seekerButton.directionMode = .backward
     }
     
     @IBAction func onBookmarkToggleTouched(_ sender: UIButton) {

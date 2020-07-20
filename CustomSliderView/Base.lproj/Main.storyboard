@@ -82,12 +82,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-kA-Cqv" customClass="DoubleTapSeekerButton" customModule="CustomSliderView" customModuleProvider="target">
-                                <rect key="frame" x="147" y="428" width="120" height="40"/>
+                                <rect key="frame" x="187.5" y="428.5" width="39" height="39"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="l1z-K6-tp6"/>
-                                    <constraint firstAttribute="width" constant="120" id="zfQ-CH-jn8"/>
+                                    <constraint firstAttribute="height" constant="39" id="l1z-K6-tp6"/>
+                                    <constraint firstAttribute="width" constant="39" id="zfQ-CH-jn8"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="direction">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,6 +134,7 @@
                         <outlet property="consBottomMargin" destination="UNB-pN-0Wb" id="hUC-QM-EfJ"/>
                         <outlet property="consLeading" destination="cIH-c8-8hx" id="TpJ-Pc-jbh"/>
                         <outlet property="consWidth" destination="Zgp-lW-fZw" id="PxE-WV-p6H"/>
+                        <outlet property="seekerButton" destination="RkA-kA-Cqv" id="v7n-e1-dBe"/>
                         <outlet property="sliderView" destination="5SS-EZ-gI6" id="3hZ-18-PeG"/>
                         <outlet property="thumbnailView" destination="rfA-Vy-dR4" id="oWp-QN-wi4"/>
                     </connections>

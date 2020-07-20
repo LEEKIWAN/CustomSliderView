@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8348892724888329009C4113 /* DoubleTapSeekerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348892624888329009C4113 /* DoubleTapSeekerButton.swift */; };
 		839B6272247CFDCC0042DDA1 /* VGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B6271247CFDCC0042DDA1 /* VGProgressView.swift */; };
+		83B4BC0424C1913B008059B4 /* DoubleTapSeekerButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83B4BC0324C1913B008059B4 /* DoubleTapSeekerButton.xib */; };
 		83C4E90D2480C54F002033BB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83C4E90C2480C54F002033BB /* SnapKit */; };
 		83C4E90F2480C570002033BB /* ProgressThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */; };
 		83C4E9152480DABF002033BB /* BookmarkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C4E9142480DABF002033BB /* BookmarkView.xib */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		8348892624888329009C4113 /* DoubleTapSeekerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapSeekerButton.swift; sourceTree = "<group>"; };
 		839B6271247CFDCC0042DDA1 /* VGProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGProgressView.swift; sourceTree = "<group>"; };
+		83B4BC0324C1913B008059B4 /* DoubleTapSeekerButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoubleTapSeekerButton.xib; sourceTree = "<group>"; };
 		83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressThumbnailView.swift; sourceTree = "<group>"; };
 		83C4E9142480DABF002033BB /* BookmarkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkView.xib; sourceTree = "<group>"; };
 		83C4E9162480DAD1002033BB /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		83EBD565247BBC9600973E4A /* CustomSliderView */ = {
 			isa = PBXGroup;
 			children = (
+				83B4BC0324C1913B008059B4 /* DoubleTapSeekerButton.xib */,
 				8348892624888329009C4113 /* DoubleTapSeekerButton.swift */,
 				83C4E91C2480ED13002033BB /* BookMark */,
 				83EBD566247BBC9600973E4A /* AppDelegate.swift */,
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C4E9202480ED39002033BB /* BookmarkCollectionViewCell.xib in Resources */,
+				83B4BC0424C1913B008059B4 /* DoubleTapSeekerButton.xib in Resources */,
 				83EBD573247BBC9900973E4A /* LaunchScreen.storyboard in Resources */,
 				83EBD570247BBC9900973E4A /* Assets.xcassets in Resources */,
 				83EBD56E247BBC9600973E4A /* Main.storyboard in Resources */,

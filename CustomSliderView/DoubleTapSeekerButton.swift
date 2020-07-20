@@ -11,15 +11,27 @@ import SnapKit
 
 class DoubleTapSeekerButton: UIView {
     
-    let fadeAnimationView: UIView = UIView()
+    enum Direction {
+        case forward
+        case backward
+    }
     
-    let seekButton: UIButton = UIButton()
-    let secondLabel: UILabel = UILabel()
+    var secondInterval = 10
     
-    var animator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 1, curve: .linear)
+    private let seekButton = UIButton()
     
-    var labelConstraint: Constraint? = nil
+    private let fadeAnimationView = UIView()
+    private let secondAnimationLabel = UILabel()
     
+    private var animator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 1, curve: .linear)
+    
+    private var labelConstraint: Constraint? = nil
+    
+    var directionMode: Direction = .forward {
+        didSet {
+            updateDirectionUI()
+        }
+    }
     
     //MARK: - Func
     override init(frame: CGRect) {
@@ -37,22 +49,24 @@ class DoubleTapSeekerButton: UIView {
     }
     
     private func setNib() {
-        addSubview(fadeAnimationView)
         addSubview(seekButton)
-        addSubview(secondLabel)
+        addSubview(fadeAnimationView)
+        addSubview(secondAnimationLabel)
+        
         
         seekButton.snp.makeConstraints { (maker) in
-            maker.centerX.equalToSuperview()
-            maker.centerY.equalToSuperview()
-            maker.width.equalTo(35)
-            maker.height.equalTo(35)
+            maker.size.equalToSuperview()
         }
         
         fadeAnimationView.snp.makeConstraints { (maker) in
             maker.edges.equalTo(seekButton).inset(UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
         }
         
-        secondLabel.snp.makeConstraints { (maker) in
+        secondIntervalLabel.snp.makeConstraints { (maker) in
+            maker.centerX.centerY.equalTo(seekButton)
+        }
+        
+        secondAnimationLabel.snp.makeConstraints { (maker) in
             maker.centerY.equalTo(seekButton)
             labelConstraint = maker.leading.equalTo(seekButton.snp.trailing).constraint
         }
@@ -61,31 +75,49 @@ class DoubleTapSeekerButton: UIView {
     
     
     private func setUI() {
-        
         seekButton.setImage(#imageLiteral(resourceName: "iconmonstr-redo-7-240.png"), for: .normal)
         seekButton.tintColor = .white
         
-        fadeAnimationView.layer.cornerRadius = 31.0 / 2
+        fadeAnimationView.layer.cornerRadius = 35.0 / 2
         fadeAnimationView.layer.masksToBounds = true
         fadeAnimationView.backgroundColor = .white
         fadeAnimationView.alpha = 0
         
-        secondLabel.text = "10"
-        secondLabel.textColor = .white
-        secondLabel.alpha = 0
         
-        secondLabel.font = secondLabel.font.withSize(18)
+        secondIntervalLabel.text = "\(secondInterval)"
+        secondIntervalLabel.textColor = .white
+        secondIntervalLabel.font = secondIntervalLabel.font.withSize(16)
         
-//        self.backgroundColor = .blue
+        secondAnimationLabel.text = "\(secondInterval)"
+        secondAnimationLabel.textColor = .white
+        secondAnimationLabel.alpha = 0
+        
+        secondAnimationLabel.font = secondAnimationLabel.font.withSize(18)
+        
+        self.backgroundColor = .blue
     }
-    
     
     private func setEvent() {
         seekButton.addTarget(self, action: #selector(onButtonTouched(_:)), for: .touchUpInside)
     }
     
-    private func setShown(_ shown: Bool) {
-        //        shown ? show() : hide()
+    private func updateDirectionUI() {
+        secondAnimationLabel.snp.removeConstraints()
+        
+        if directionMode == .forward {
+            seekButton.setImage(#imageLiteral(resourceName: "iconmonstr-redo-7-240.png"), for: .normal)
+            secondAnimationLabel.snp.makeConstraints { (maker) in
+                maker.centerY.equalTo(seekButton)
+                labelConstraint = maker.leading.equalTo(seekButton.snp.trailing).constraint
+            }
+        }
+        else {
+            seekButton.setImage(#imageLiteral(resourceName: "iconmonstr-undo-7-240.png"), for: .normal)
+            secondAnimationLabel.snp.makeConstraints { (maker) in
+                maker.centerY.equalTo(seekButton)
+                labelConstraint = maker.trailing.equalTo(seekButton.snp.leading).constraint
+            }
+        }
     }
     
     @objc func onButtonTouched(_ sender: UIButton) {
@@ -104,7 +136,6 @@ class DoubleTapSeekerButton: UIView {
             UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.0) {
                     self.fadeAnimationView.alpha = 1
-                    //                    self.consLeading.constant = 0
                     self.labelConstraint?.update(offset: 0)
                     self.seekButton.transform = CGAffineTransform(rotationAngle: 0)
                 }
@@ -132,20 +163,31 @@ class DoubleTapSeekerButton: UIView {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.2) {
                     
                     self.fadeAnimationView.alpha = 0
-                    //                    self.consLeading.constant = 20
-                    self.labelConstraint?.update(offset: 20)
-                    self.secondLabel.alpha = 1
+                    if self.directionMode == .forward {
+                        self.labelConstraint!.update(offset: 10)
+                    }
+                    else {
+                        self.labelConstraint!.update(offset: -10)
+                    }
+                    
+                    
+                    self.secondAnimationLabel.alpha = 1
                     self.layoutIfNeeded()
                 }
                 
+                
+                
                 UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2) {
-                    //                    self.consLeading.constant = 40
-                    self.labelConstraint?.update(offset: 40)
-                    self.secondLabel.alpha = 0
+                    if self.directionMode == .forward {
+                        self.labelConstraint!.update(offset: 20)
+                    }
+                    else {
+                        self.labelConstraint!.update(offset: -20)
+                    }
+                    self.secondAnimationLabel.alpha = 0
                     self.layoutIfNeeded()
                 }
             }) { (completion: Bool) in
-                //                self.consLeading.constant = 0
                 self.labelConstraint?.update(offset: 0)
             }
         }
