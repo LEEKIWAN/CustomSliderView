@@ -82,11 +82,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-kA-Cqv" customClass="DoubleTapSeekerButton" customModule="CustomSliderView" customModuleProvider="target">
-                                <rect key="frame" x="187.5" y="428.5" width="39" height="39"/>
+                                <rect key="frame" x="127.5" y="428.5" width="39" height="39"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="l1z-K6-tp6"/>
                                     <constraint firstAttribute="width" constant="39" id="zfQ-CH-jn8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="direction">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBd-gu-aqx" customClass="DoubleTapSeekerButton" customModule="CustomSliderView" customModuleProvider="target">
+                                <rect key="frame" x="247.5" y="428.5" width="39" height="39"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="PjV-Gl-Dzd"/>
+                                    <constraint firstAttribute="width" constant="39" id="gEP-Tr-7Jx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="direction">
@@ -105,9 +118,11 @@
                             <constraint firstItem="Xsk-2i-ucI" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="66j-f0-EUQ"/>
                             <constraint firstItem="pga-BI-0Bj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9aM-GW-wk5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rfA-Vy-dR4" secondAttribute="trailing" id="9ah-K3-eLd"/>
+                            <constraint firstItem="VBd-gu-aqx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="FCz-qg-oht"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pga-BI-0Bj" secondAttribute="bottom" constant="-234" id="Gq0-cz-lEP"/>
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H4L-eA-qve"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pga-BI-0Bj" secondAttribute="trailing" id="H88-Ty-OE9"/>
+                            <constraint firstItem="VBd-gu-aqx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JA3-qo-O3G"/>
                             <constraint firstItem="pga-BI-0Bj" firstAttribute="top" secondItem="5SS-EZ-gI6" secondAttribute="bottom" priority="999" constant="-14" id="JBy-z0-inH"/>
                             <constraint firstItem="rfA-Vy-dR4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jtr-Ue-ZMt"/>
                             <constraint firstItem="Xsk-2i-ucI" firstAttribute="leading" secondItem="e4Y-Bw-5H4" secondAttribute="trailing" constant="20" id="NP0-2Q-F2o"/>
@@ -115,7 +130,7 @@
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="top" secondItem="rfA-Vy-dR4" secondAttribute="bottom" constant="10" id="UNB-pN-0Wb"/>
                             <constraint firstItem="NbO-PU-MDf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XZ2-CO-ctr"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="leading" secondItem="5SS-EZ-gI6" secondAttribute="leading" id="cIH-c8-8hx"/>
-                            <constraint firstItem="RkA-kA-Cqv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cTu-Ao-3Re"/>
+                            <constraint firstItem="RkA-kA-Cqv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="cTu-Ao-3Re"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5SS-EZ-gI6" secondAttribute="trailing" constant="10" id="eNV-xE-QDX"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="centerY" secondItem="5SS-EZ-gI6" secondAttribute="centerY" id="ene-kJ-PTs"/>
                             <constraint firstItem="4hw-gw-oVW" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="kyq-gg-6GP"/>
@@ -135,6 +150,7 @@
                         <outlet property="consLeading" destination="cIH-c8-8hx" id="TpJ-Pc-jbh"/>
                         <outlet property="consWidth" destination="Zgp-lW-fZw" id="PxE-WV-p6H"/>
                         <outlet property="seekerButton" destination="RkA-kA-Cqv" id="v7n-e1-dBe"/>
+                        <outlet property="seekerButton2" destination="VBd-gu-aqx" id="U1n-eg-mS5"/>
                         <outlet property="sliderView" destination="5SS-EZ-gI6" id="3hZ-18-PeG"/>
                         <outlet property="thumbnailView" destination="rfA-Vy-dR4" id="oWp-QN-wi4"/>
                     </connections>

@@ -24,6 +24,7 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
     
     @IBOutlet weak var seekerButton: DoubleTapSeekerButton!
     
+    @IBOutlet weak var seekerButton2: DoubleTapSeekerButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
         sliderView.delegate = self
         
         seekerButton.directionMode = .backward
+        seekerButton2.directionMode = .forward
     }
     
     @IBAction func onBookmarkToggleTouched(_ sender: UIButton) {
