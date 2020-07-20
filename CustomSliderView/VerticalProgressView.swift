@@ -7,24 +7,19 @@
 //
 
 import UIKit
+import SnapKit
 
 class VerticalProgressView: UIView {
-    var currentValue: Float = 0.0
-    
-    //    weak var delegate: PlayerSliderViewDelegate?
+    var currentHeight: Float = 0.0
+
     let panGestureView = UIView()
     
-    let progressView: UIProgressView = {
-        let prgressView = UIProgressView()
-        prgressView.progress = 0.7
-        prgressView.progressTintColor = UIColor(red: 1.0, green: 0.21, blue: 0.33, alpha: 1)
-        prgressView.trackTintColor = UIColor.blue
-        prgressView.layer.cornerRadius = 6.5
-        prgressView.clipsToBounds = true
-        prgressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
-        prgressView.translatesAutoresizingMaskIntoConstraints = false
-        return prgressView
-    }()
+    let coverView = UIView()
+    let progressView = UIView()
+    
+    var touchBeganedLocation: CGPoint = CGPoint.zero
+    
+    private var progressHeight: Constraint? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,25 +36,35 @@ class VerticalProgressView: UIView {
     }
     
     func setNib() {
-        addSubview(progressView)
+        addSubview(coverView)
         addSubview(panGestureView)
+        
+        coverView.snp.makeConstraints { (maker) in
+            maker.centerY.centerX.equalToSuperview()
+            maker.width.equalTo(10)
+            maker.height.equalToSuperview()
+        }
+        
+        coverView.addSubview(progressView)
+        
+        progressView.snp.makeConstraints { (maker) in
+            maker.bottom.trailing.leading.equalToSuperview()
+            progressHeight = maker.height.equalTo(10).constraint
+        }
+        
         
         panGestureView.snp.makeConstraints { (maker) in
             maker.size.equalToSuperview()
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        progressView.bounds.size.width = bounds.height - 10
-        progressView.bounds.size.height = 10
-        progressView.center.x = bounds.midX
-        progressView.center.y = bounds.midY
-    }
-    
-    
     func setUI() {
         panGestureView.backgroundColor = .clear
+        progressView.backgroundColor = .red
+        coverView.backgroundColor = .blue
+        
+        coverView.layer.cornerRadius = 3
+        coverView.layer.masksToBounds = true
     }
     
     func setEvent() {
@@ -68,31 +73,25 @@ class VerticalProgressView: UIView {
     }
     
     open func setProgress(_ progress: Float, animated: Bool) {
-        progressView.setProgress(progress, animated: animated)
+//        progressView.setProgress(progress, animated: animated)
     }
     
     //MARK: - Event
-    @objc func timeSliderValueChanged(_ recognizer: UIPanGestureRecognizer?) {
-        switch recognizer?.state {
+    @objc func timeSliderValueChanged(_ recognizer: UIPanGestureRecognizer) {
+        let location = recognizer.location(in: recognizer.view)
+        
+        switch recognizer.state {
         case.began:
-            let location = recognizer?.location(in: recognizer?.view)
-            let height = recognizer?.view?.frame.size.height ?? 0.0
-            let pointY = self.frame.size.height - location!.y
-
-            let prv = progressView.progress * Float(height)
-            
-            currentValue = prv
-//            print(currentValue)
-            break
+            touchBeganedLocation = location
+            currentHeight = Float(progressHeight!.layoutConstraints.first!.constant)
         case .changed:
-            let location = recognizer?.location(in: recognizer?.view)
-            let height = recognizer?.view?.frame.size.height ?? 0.0
-            let pointY = self.frame.size.height - location!.y
+            let height = recognizer.view?.frame.size.height ?? 0.0
+            let pointY = self.frame.size.height - location.y
+            var touchChangedLocationY = location.x - touchBeganedLocation.y
+
+            progressHeight?.update(offset: Float(pointY + touchChangedLocationY))
             
-            let value = pointY / height
-            progressView.setProgress(Float(value), animated: false)
-            
-            print(currentValue , pointY)
+            print(pointY ,touchChangedLocationY)
         case .ended:
             break
         default:
