@@ -67,9 +67,6 @@
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5SS-EZ-gI6" customClass="VGPlayerSlider" customModule="CustomSliderView" customModuleProvider="target">
                                 <rect key="frame" x="8" y="802" width="398" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0aX-Mo-HgO"/>
-                                </constraints>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </slider>
@@ -109,13 +106,13 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqZ-9w-aE0" customClass="VerticalProgressView" customModule="CustomSliderView" customModuleProvider="target">
                                 <rect key="frame" x="20" y="99" width="30" height="324.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="9Ni-oM-YTO"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0sU-Ie-Bud" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0KH-zW-hYR"/>

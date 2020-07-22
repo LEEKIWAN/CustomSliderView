@@ -7,19 +7,26 @@
 //
 
 import UIKit
-import SnapKit
 
 class VerticalProgressView: UIView {
-    var currentHeight: Float = 0.0
-
+    //    weak var delegate: PlayerSliderViewDelegate?
+    var previousProgressValue: Float = 0
+    
     let panGestureView = UIView()
+    let statusImageView = UIImageView()
     
-    let coverView = UIView()
-    let progressView = UIView()
     
-    var touchBeganedLocation: CGPoint = CGPoint.zero
-    
-    private var progressHeight: Constraint? = nil
+    let progressView: UIProgressView = {
+        let prgressView = UIProgressView()
+        prgressView.progress = 0.7
+        prgressView.progressTintColor = UIColor(red: 1.0, green: 0.21, blue: 0.33, alpha: 1)
+        prgressView.trackTintColor = UIColor.blue
+        prgressView.layer.cornerRadius = 4
+        prgressView.clipsToBounds = true
+        prgressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
+        prgressView.translatesAutoresizingMaskIntoConstraints = false
+        return prgressView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,35 +43,33 @@ class VerticalProgressView: UIView {
     }
     
     func setNib() {
-        addSubview(coverView)
+        addSubview(progressView)
+        addSubview(statusImageView)
         addSubview(panGestureView)
-        
-        coverView.snp.makeConstraints { (maker) in
-            maker.centerY.centerX.equalToSuperview()
-            maker.width.equalTo(10)
-            maker.height.equalToSuperview()
-        }
-        
-        coverView.addSubview(progressView)
-        
-        progressView.snp.makeConstraints { (maker) in
-            maker.bottom.trailing.leading.equalToSuperview()
-            progressHeight = maker.height.equalTo(10).constraint
-        }
-        
         
         panGestureView.snp.makeConstraints { (maker) in
             maker.size.equalToSuperview()
         }
+        
+        statusImageView.snp.makeConstraints { (maker) in
+            maker.centerX.top.equalToSuperview()
+            maker.width.height.equalTo(30)
+        }
     }
     
-    func setUI() {
-        panGestureView.backgroundColor = .clear
-        progressView.backgroundColor = .red
-        coverView.backgroundColor = .blue
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        progressView.bounds.size.width = bounds.height - 40
+        progressView.bounds.size.height = 10
+        progressView.center.x = bounds.midX
+        progressView.center.y = bounds.midY + 20
         
-        coverView.layer.cornerRadius = 3
-        coverView.layer.masksToBounds = true
+    }
+    
+    
+    func setUI() {
+        panGestureView.backgroundColor = .clear        
+        statusImageView.image = #imageLiteral(resourceName: "brightness_high")
     }
     
     func setEvent() {
@@ -73,25 +78,28 @@ class VerticalProgressView: UIView {
     }
     
     open func setProgress(_ progress: Float, animated: Bool) {
-//        progressView.setProgress(progress, animated: animated)
+        progressView.setProgress(progress, animated: animated)
     }
     
     //MARK: - Event
     @objc func timeSliderValueChanged(_ recognizer: UIPanGestureRecognizer) {
-        let location = recognizer.location(in: recognizer.view)
-        
+        let velocity = recognizer.velocity(in: recognizer.view)
         switch recognizer.state {
         case.began:
-            touchBeganedLocation = location
-            currentHeight = Float(progressHeight!.layoutConstraints.first!.constant)
+            break
         case .changed:
-            let height = recognizer.view?.frame.size.height ?? 0.0
-            let pointY = self.frame.size.height - location.y
-            var touchChangedLocationY = location.x - touchBeganedLocation.y
-
-            progressHeight?.update(offset: Float(pointY + touchChangedLocationY))
+            let value = Float(velocity.y / 10000)
+            UIScreen.main.brightness -= CGFloat(value)
+            progressView.setProgress(Float(UIScreen.main.brightness), animated: false)
             
-            print(pointY ,touchChangedLocationY)
+            statusImageView.image = UIScreen.main.brightness >= 0.5 ? #imageLiteral(resourceName: "brightness_high") : #imageLiteral(resourceName: "brightness_low")
+            
+            if (progressView.progress == 0 || progressView.progress == 1) && (previousProgressValue != progressView.progress) {
+                UIDevice.vibrate()
+            }
+            
+            previousProgressValue = progressView.progress
+            
         case .ended:
             break
         default:

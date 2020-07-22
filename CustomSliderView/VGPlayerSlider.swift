@@ -62,22 +62,21 @@ class VGPlayerSlider: UISlider {
         return newRect
     }
     
-    override open func trackRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = super.trackRect(forBounds: bounds)
-        let newRect = CGRect(origin: rect.origin, size: CGSize(width: rect.size.width, height: rect.size.height))
-        configureProgressView(newRect)
-        return newRect
-    }
-    
     private func configureSlider() {
         self.thumbTintColor = .blue
         
+        self.addSubview(progressView)
         progressView.tintColor = .blue
         progressView.trackTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2964201627)
-        progressView.transform = progressView.transform.scaledBy(x: 1, y: 5)
+        
+        progressView.snp.makeConstraints { (make) in
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.center.equalToSuperview()
+            make.height.equalTo(6)
+        }
         
         self.addTarget(self, action: #selector(onSliderValueChanged(slider:event:)), for: .valueChanged)
-        
     }
     
     open func setProgress(_ progress: Float, animated: Bool) {
@@ -86,20 +85,6 @@ class VGPlayerSlider: UISlider {
     }
     
     // MARK: - UI
-    
-    private func configureProgressView(_ frame: CGRect) {
-        
-        progressView.frame = frame
-        insertSubview(progressView, at: 0)
-        
-        //        progressView.snp.makeConstraints { (make) in
-        //            make.leading.equalTo(0)
-        //            make.trailing.equalTo(0)
-        //            make.center.equalToSuperview()
-        //            make.height.equalTo(0.5)
-        //        }
-    }
-    
     func setThumbHidden(hidden: Bool) {
         if hidden {
             progressView.tintColor = .red

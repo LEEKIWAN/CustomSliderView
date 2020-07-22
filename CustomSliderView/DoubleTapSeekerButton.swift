@@ -75,6 +75,7 @@ class DoubleTapSeekerButton: UIView {
     }
     
     private func setUI() {
+        seekButton.adjustsImageWhenHighlighted = false
         seekButton.setImage(#imageLiteral(resourceName: "iconmonstr-redo-7-240.png"), for: .normal)
         seekButton.tintColor = .white
         
