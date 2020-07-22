@@ -111,6 +111,13 @@
                                     <constraint firstAttribute="width" constant="30" id="9Ni-oM-YTO"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDQ-gJ-osX" customClass="VerticalProgressView" customModule="CustomSliderView" customModuleProvider="target">
+                                <rect key="frame" x="364" y="99" width="30" height="324.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Xk8-Gk-Gvt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -127,6 +134,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pga-BI-0Bj" secondAttribute="bottom" constant="-234" id="Gq0-cz-lEP"/>
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H4L-eA-qve"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pga-BI-0Bj" secondAttribute="trailing" id="H88-Ty-OE9"/>
+                            <constraint firstItem="cDQ-gJ-osX" firstAttribute="top" secondItem="fqZ-9w-aE0" secondAttribute="top" id="Iyb-kX-CSA"/>
                             <constraint firstItem="VBd-gu-aqx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JA3-qo-O3G"/>
                             <constraint firstItem="pga-BI-0Bj" firstAttribute="top" secondItem="5SS-EZ-gI6" secondAttribute="bottom" priority="999" constant="-14" id="JBy-z0-inH"/>
                             <constraint firstItem="rfA-Vy-dR4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jtr-Ue-ZMt"/>
@@ -141,17 +149,20 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5SS-EZ-gI6" secondAttribute="trailing" constant="10" id="eNV-xE-QDX"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="centerY" secondItem="5SS-EZ-gI6" secondAttribute="centerY" id="ene-kJ-PTs"/>
                             <constraint firstItem="4hw-gw-oVW" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="kyq-gg-6GP"/>
+                            <constraint firstItem="cDQ-gJ-osX" firstAttribute="bottom" secondItem="fqZ-9w-aE0" secondAttribute="bottom" id="mAu-0Y-ds3"/>
                             <constraint firstItem="NbO-PU-MDf" firstAttribute="top" secondItem="pga-BI-0Bj" secondAttribute="bottom" id="mvu-1m-p7m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e4Y-Bw-5H4" secondAttribute="bottom" constant="10" id="ohh-Bj-Q7C"/>
                             <constraint firstItem="e4Y-Bw-5H4" firstAttribute="top" secondItem="5SS-EZ-gI6" secondAttribute="bottom" constant="20" id="pFK-Sr-hbe"/>
                             <constraint firstItem="0sU-Ie-Bud" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pkp-kO-Cxl"/>
                             <constraint firstItem="4hw-gw-oVW" firstAttribute="leading" secondItem="Xsk-2i-ucI" secondAttribute="trailing" constant="30" id="roq-wa-3Vk"/>
                             <constraint firstAttribute="trailing" secondItem="NbO-PU-MDf" secondAttribute="trailing" id="vwE-jT-xT1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cDQ-gJ-osX" secondAttribute="trailing" constant="20" id="wG9-Tu-UTh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="bookmarkView" destination="pga-BI-0Bj" id="vqF-8g-J1O"/>
+                        <outlet property="brightnessVertical" destination="fqZ-9w-aE0" id="E1r-PT-Crp"/>
                         <outlet property="consBookmarkBottomMargin" destination="Gq0-cz-lEP" id="gSN-xj-vNX"/>
                         <outlet property="consBottomMargin" destination="UNB-pN-0Wb" id="hUC-QM-EfJ"/>
                         <outlet property="consLeading" destination="cIH-c8-8hx" id="TpJ-Pc-jbh"/>
@@ -159,6 +170,7 @@
                         <outlet property="seekerButton" destination="RkA-kA-Cqv" id="v7n-e1-dBe"/>
                         <outlet property="seekerButton2" destination="VBd-gu-aqx" id="U1n-eg-mS5"/>
                         <outlet property="sliderView" destination="5SS-EZ-gI6" id="3hZ-18-PeG"/>
+                        <outlet property="soundVertical" destination="cDQ-gJ-osX" id="96C-zs-Yvg"/>
                         <outlet property="thumbnailView" destination="rfA-Vy-dR4" id="oWp-QN-wi4"/>
                     </connections>
                 </viewController>

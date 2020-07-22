@@ -15,7 +15,7 @@ class DoubleTapSeekerButton: UIView {
         case backward
     }
     
-    var animationScale = 20
+    var animationRange = 20
     var interval = 10
     
     private var currentInterval = 0
@@ -179,7 +179,7 @@ class DoubleTapSeekerButton: UIView {
                 
                 
                 UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.2) {
-                    _ = self.directionMode == .forward ? self.labelConstraint!.update(offset: self.animationScale) : self.labelConstraint!.update(offset: -self.animationScale)
+                    _ = self.directionMode == .forward ? self.labelConstraint!.update(offset: self.animationRange) : self.labelConstraint!.update(offset: -self.animationRange)
                     
                     self.secondAnimationLabel.alpha = 1.0
                     self.layoutIfNeeded()

@@ -26,6 +26,9 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
     
     @IBOutlet weak var seekerButton2: DoubleTapSeekerButton!
     
+    @IBOutlet weak var brightnessVertical: VerticalProgressView!
+    @IBOutlet weak var soundVertical: VerticalProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +36,9 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
         
         seekerButton.directionMode = .backward
         seekerButton2.directionMode = .forward
+        
+        brightnessVertical.mode = .brightness
+        soundVertical.mode = .sound
     }
     
     @IBAction func onBookmarkToggleTouched(_ sender: UIButton) {

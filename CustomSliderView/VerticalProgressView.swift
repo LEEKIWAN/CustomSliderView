@@ -7,9 +7,25 @@
 //
 
 import UIKit
+import MediaPlayer
+
 
 class VerticalProgressView: UIView {
-    //    weak var delegate: PlayerSliderViewDelegate?
+    enum Mode {
+         case sound
+         case brightness
+     }
+    
+    var mode: Mode = .sound {
+        didSet {
+            updateModeUI()
+        }
+    }
+    
+    var volumeView: MPVolumeView = MPVolumeView(frame: CGRect(x: -1000, y: -1000, width: 100, height: 100))
+    var volumeSlider : UISlider?
+    
+    
     var previousProgressValue: Float = 0
     
     let panGestureView = UIView()
@@ -42,7 +58,8 @@ class VerticalProgressView: UIView {
         setEvent()
     }
     
-    func setNib() {
+    private func setNib() {
+        addSubview(volumeView)
         addSubview(progressView)
         addSubview(statusImageView)
         addSubview(panGestureView)
@@ -66,19 +83,19 @@ class VerticalProgressView: UIView {
         
     }
     
-    
-    func setUI() {
-        panGestureView.backgroundColor = .clear        
-        statusImageView.image = #imageLiteral(resourceName: "brightness_high")
+    private func setUI() {
+        volumeSlider = volumeView.subviews.first as? UISlider
+        panGestureView.backgroundColor = .clear
+        updateBrightnessUI()
     }
     
-    func setEvent() {
+    private func setEvent() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(timeSliderValueChanged(_:)))
         panGestureView.addGestureRecognizer(panGesture)
     }
     
-    open func setProgress(_ progress: Float, animated: Bool) {
-        progressView.setProgress(progress, animated: animated)
+    private func updateModeUI() {
+        self.mode == .brightness ? updateBrightnessUI() : updateSoundUI()
     }
     
     //MARK: - Event
@@ -88,16 +105,16 @@ class VerticalProgressView: UIView {
         case.began:
             break
         case .changed:
-            let value = Float(velocity.y / 10000)
-            UIScreen.main.brightness -= CGFloat(value)
-            progressView.setProgress(Float(UIScreen.main.brightness), animated: false)
-            
-            statusImageView.image = UIScreen.main.brightness >= 0.5 ? #imageLiteral(resourceName: "brightness_high") : #imageLiteral(resourceName: "brightness_low")
+            if mode == .brightness {
+                updateBrightnessUI(value: Float(velocity.y / 10000))
+            }
+            else {
+                updateSoundUI(value: Float(velocity.y / 10000))
+            }
             
             if (progressView.progress == 0 || progressView.progress == 1) && (previousProgressValue != progressView.progress) {
                 UIDevice.vibrate()
             }
-            
             previousProgressValue = progressView.progress
             
         case .ended:
@@ -106,6 +123,41 @@ class VerticalProgressView: UIView {
             break
         }
     }
+    
+    func updateBrightnessUI(value: Float = 0) {
+        UIScreen.main.brightness -= CGFloat(value)
+        progressView.setProgress(Float(UIScreen.main.brightness), animated: false)
+        statusImageView.image = UIScreen.main.brightness >= 0.5 ? #imageLiteral(resourceName: "brightness_high") : #imageLiteral(resourceName: "brightness_low")
+    }
+    
+    func updateSoundUI(value: Float = 0) {
+        guard let volumeSlider = volumeSlider else {
+            return
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        var systemVolume: Float!
+        do {
+            try audioSession.setActive(true)
+            systemVolume = audioSession.outputVolume
+        } catch {
+            print("Error Setting Up Audio Session")
+        }
+        
+        volumeSlider.value -= value
+        progressView.setProgress(systemVolume!, animated: false)
+//
+        if systemVolume == 0 {
+            statusImageView.image = #imageLiteral(resourceName: "volume_muted")
+        }
+        else if systemVolume < 0.5 {
+            statusImageView.image = #imageLiteral(resourceName: "volume_low")
+        }
+        else {
+            statusImageView.image = #imageLiteral(resourceName: "volume_high")
+        }
+        
+      }
     
 }
 
