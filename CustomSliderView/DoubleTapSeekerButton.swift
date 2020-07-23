@@ -15,7 +15,7 @@ class DoubleTapSeekerButton: UIView {
         case backward
     }
     
-    var animationRange = 20
+    var animationRange = 40
     var interval = 10
     
     private var currentInterval = 0

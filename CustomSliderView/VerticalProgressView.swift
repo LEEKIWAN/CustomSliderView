@@ -86,7 +86,7 @@ class VerticalProgressView: UIView {
     private func setUI() {
         volumeSlider = volumeView.subviews.first as? UISlider
         panGestureView.backgroundColor = .clear
-        updateBrightnessUI()
+        mode = .sound
     }
     
     private func setEvent() {

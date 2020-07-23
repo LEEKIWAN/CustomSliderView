@@ -29,6 +29,8 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
     @IBOutlet weak var brightnessVertical: VerticalProgressView!
     @IBOutlet weak var soundVertical: VerticalProgressView!
     
+    let bt = BottomButtonsStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +41,13 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
         
         brightnessVertical.mode = .brightness
         soundVertical.mode = .sound
+        
+        self.view.addSubview(bt)
+        
+        bt.snp.makeConstraints { (maker) in
+            maker.center.equalToSuperview()
+            maker.height.equalTo(30)
+        }
     }
     
     @IBAction func onBookmarkToggleTouched(_ sender: UIButton) {
