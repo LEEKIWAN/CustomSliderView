@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8345364B24C927DA00606D5B /* BottomButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345364A24C927DA00606D5B /* BottomButtonsStackView.swift */; };
+		8345364D24C9448400606D5B /* BottomButtonsStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8345364C24C9448400606D5B /* BottomButtonsStackView.xib */; };
+		8345364F24C9449200606D5B /* BottomButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345364E24C9449200606D5B /* BottomButtonsStackView.swift */; };
 		8348892724888329009C4113 /* DoubleTapSeekerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348892624888329009C4113 /* DoubleTapSeekerButton.swift */; };
 		839B6272247CFDCC0042DDA1 /* VGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B6271247CFDCC0042DDA1 /* VGProgressView.swift */; };
 		83B4BC0624C57321008059B4 /* VerticalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4BC0524C57321008059B4 /* VerticalProgressView.swift */; };
@@ -31,7 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8345364A24C927DA00606D5B /* BottomButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsStackView.swift; sourceTree = "<group>"; };
+		8345364C24C9448400606D5B /* BottomButtonsStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomButtonsStackView.xib; sourceTree = "<group>"; };
+		8345364E24C9449200606D5B /* BottomButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsStackView.swift; sourceTree = "<group>"; };
 		8348892624888329009C4113 /* DoubleTapSeekerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapSeekerButton.swift; sourceTree = "<group>"; };
 		839B6271247CFDCC0042DDA1 /* VGProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGProgressView.swift; sourceTree = "<group>"; };
 		83B4BC0524C57321008059B4 /* VerticalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalProgressView.swift; sourceTree = "<group>"; };
@@ -100,7 +102,8 @@
 				83B4BC0724C578EC008059B4 /* UIColor+.swift */,
 				83B4BC0524C57321008059B4 /* VerticalProgressView.swift */,
 				8348892624888329009C4113 /* DoubleTapSeekerButton.swift */,
-				8345364A24C927DA00606D5B /* BottomButtonsStackView.swift */,
+				8345364C24C9448400606D5B /* BottomButtonsStackView.xib */,
+				8345364E24C9449200606D5B /* BottomButtonsStackView.swift */,
 				83C4E91C2480ED13002033BB /* BookMark */,
 				83EBD566247BBC9600973E4A /* AppDelegate.swift */,
 				83EBD568247BBC9600973E4A /* SceneDelegate.swift */,
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C4E9202480ED39002033BB /* BookmarkCollectionViewCell.xib in Resources */,
+				8345364D24C9448400606D5B /* BottomButtonsStackView.xib in Resources */,
 				83EBD573247BBC9900973E4A /* LaunchScreen.storyboard in Resources */,
 				83EBD570247BBC9900973E4A /* Assets.xcassets in Resources */,
 				83EBD56E247BBC9600973E4A /* Main.storyboard in Resources */,
@@ -210,9 +214,9 @@
 				83C4E9192480E2DD002033BB /* UIView+.swift in Sources */,
 				83EBD569247BBC9600973E4A /* SceneDelegate.swift in Sources */,
 				83B4BC0824C578EC008059B4 /* UIColor+.swift in Sources */,
-				8345364B24C927DA00606D5B /* BottomButtonsStackView.swift in Sources */,
 				83C4E9172480DAD1002033BB /* BookmarkView.swift in Sources */,
 				83EBD585247CA04900973E4A /* VGPlayerSlider.swift in Sources */,
+				8345364F24C9449200606D5B /* BottomButtonsStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

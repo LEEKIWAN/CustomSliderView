@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomButtonsStackView" customModule="CustomSliderView" customModuleProvider="target">
+            <connections>
+                <outlet property="bookmarkButton" destination="qmU-ZE-NIo" id="hbI-N9-5Ub"/>
+                <outlet property="lockButton" destination="ff2-ze-5BR" id="8Sw-Kc-whg"/>
+                <outlet property="moreButton" destination="u0d-Ck-MNe" id="NIu-gi-u4m"/>
+                <outlet property="repeatButton" destination="kkD-wA-4Uw" id="qJc-JM-XeU"/>
+                <outlet property="seriesButton" destination="v3G-bL-Gvd" id="rW5-aT-CnE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="857" height="211"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="5bA-iz-aiL">
+                    <rect key="frame" x="0.0" y="0.0" width="857" height="211"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zen-Qd-W0U">
+                            <rect key="frame" x="0.0" y="0.0" width="225.5" height="211"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4mC-lS-tCk">
+                                    <rect key="frame" x="0.0" y="0.0" width="225.5" height="211"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ff2-ze-5BR">
+                                            <rect key="frame" x="0.0" y="0.0" width="225.5" height="211"/>
+                                            <state key="normal" image="iconmonstr-lock-16-240"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="4mC-lS-tCk" firstAttribute="leading" secondItem="Zen-Qd-W0U" secondAttribute="leading" id="B1o-aw-ewe"/>
+                                <constraint firstAttribute="trailing" secondItem="4mC-lS-tCk" secondAttribute="trailing" id="EnJ-Xd-D9j"/>
+                                <constraint firstItem="4mC-lS-tCk" firstAttribute="top" secondItem="Zen-Qd-W0U" secondAttribute="top" id="JfT-9h-MFr"/>
+                                <constraint firstAttribute="bottom" secondItem="4mC-lS-tCk" secondAttribute="bottom" id="p12-QM-X12"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkD-wA-4Uw">
+                            <rect key="frame" x="225.5" y="0.0" width="120" height="211"/>
+                            <state key="normal" image="iconmonstr-loop-thin-240"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3G-bL-Gvd">
+                            <rect key="frame" x="398.5" y="0.0" width="120" height="211"/>
+                            <state key="normal" image="iconmonstr-star-3-240"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmU-ZE-NIo">
+                            <rect key="frame" x="571" y="0.0" width="120" height="211"/>
+                            <state key="normal" image="iconmonstr-lock-16-240"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0d-Ck-MNe">
+                            <rect key="frame" x="737" y="0.0" width="120" height="211"/>
+                            <state key="normal" image="iconmonstr-lock-16-240"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5bA-iz-aiL" secondAttribute="trailing" id="5Hw-R6-QmE"/>
+                <constraint firstItem="5bA-iz-aiL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Tb-Sc-hB5"/>
+                <constraint firstItem="5bA-iz-aiL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cBN-yG-0jU"/>
+                <constraint firstAttribute="bottom" secondItem="5bA-iz-aiL" secondAttribute="bottom" id="mAw-Vx-025"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="458.69565217391306" y="357.25446428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconmonstr-lock-16-240" width="120" height="120"/>
+        <image name="iconmonstr-loop-thin-240" width="120" height="120"/>
+        <image name="iconmonstr-star-3-240" width="120" height="120"/>
+    </resources>
+</document>
