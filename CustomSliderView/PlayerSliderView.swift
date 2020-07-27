@@ -9,25 +9,25 @@
 import UIKit
 
 
-protocol VGPlayerSliderDelegate: class {
-    func vgSliderTouchBegan(slider: VGPlayerSlider)
-    func vgSliderValueChanged(slider: VGPlayerSlider, thumbXPoint: CGFloat)
-    func vgSliderTouchEnd(slider: VGPlayerSlider)
+protocol PlayerSliderViewDelegate : class {
+    func sliderTouchBegan(slider: PlayerSliderView)
+    func sliderValueChanged(slider: PlayerSliderView, thumbXPoint: CGFloat)
+    func sliderTouchEnd(slider: PlayerSliderView)
     
 }
 
-class VGPlayerSlider: UISlider {
+class PlayerSliderView: UISlider {
     
     // MARK: - variable
     
-    weak var delegate: VGPlayerSliderDelegate?
+    weak var delegate: PlayerSliderViewDelegate?
     
     
-    public var isThumbHidden: Bool = false {
-        didSet {
-            self.setThumbHidden(hidden: isThumbHidden)
-        }
-    }
+//    public var isThumbHidden: Bool = false {
+//        didSet {
+//            self.setThumbHidden(hidden: isThumbHidden)
+//        }
+//    }
     
     public var progress: Float = 0 {
         didSet {
@@ -39,10 +39,11 @@ class VGPlayerSlider: UISlider {
         return thumbBounds.midX
     }
     
+    var bookmarkIndicators: [UIView] = []
     
     private var progressView = UIProgressView()
     
-    private var repeatProgressView = VGProgressView()
+    private var sliderRepeatView = SliderRepeatView()
     
     // MARK: - function
     
@@ -62,12 +63,16 @@ class VGPlayerSlider: UISlider {
         return newRect
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        delegate?.sliderValueChanged(slider: self, thumbXPoint: thumbCenterX)
+    }
+    
     private func configureSlider() {
         self.thumbTintColor = .blue
         
         self.addSubview(progressView)
-        progressView.tintColor = .blue
-        progressView.trackTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2964201627)
+        self.setPlayModeUI()
         
         progressView.snp.makeConstraints { (make) in
             make.leading.equalTo(0)
@@ -79,23 +84,23 @@ class VGPlayerSlider: UISlider {
         self.addTarget(self, action: #selector(onSliderValueChanged(slider:event:)), for: .valueChanged)
     }
     
-    open func setProgress(_ progress: Float, animated: Bool) {
+    private func setProgress(_ progress: Float, animated: Bool) {
         self.value = progress
         progressView.setProgress(progress, animated: animated)
     }
     
     // MARK: - UI
-    func setThumbHidden(hidden: Bool) {
-        if hidden {
+    private func setLiveMode() {
+//        if hidden {
             progressView.tintColor = .red
             progressView.trackTintColor = .red
             self.thumbTintColor = .clear
             self.isUserInteractionEnabled = false
-        }
-        else {
-            self.configureSlider()
-            self.isUserInteractionEnabled = true
-        }
+//        }
+//        else {
+//            self.configureSlider()
+//            self.isUserInteractionEnabled = true
+//        }
     }
     
     
@@ -105,12 +110,12 @@ class VGPlayerSlider: UISlider {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                delegate?.vgSliderTouchBegan(slider: self)
+                delegate?.sliderTouchBegan(slider: self)
             case .moved:
-                delegate?.vgSliderValueChanged(slider: self, thumbXPoint: thumbCenterX)
+                delegate?.sliderValueChanged(slider: self, thumbXPoint: thumbCenterX)
             case .ended:
                 setProgress(slider.value, animated: false)
-                self.delegate?.vgSliderTouchEnd(slider: self)
+                self.delegate?.sliderTouchEnd(slider: self)
                 
             default:
                 break
@@ -120,21 +125,44 @@ class VGPlayerSlider: UISlider {
     
     func setRepeatStartPoint() {
         let center = CGFloat(progressView.progress) * progressView.frame.size.width
-        repeatProgressView.frame = CGRect(x: center, y: progressView.frame.origin.y, width: 2, height: progressView.frame.size.height)
-        repeatProgressView.trackTintColor = .clear
-        self.insertSubview(repeatProgressView, aboveSubview: progressView)
+        sliderRepeatView.frame = CGRect(x: center, y: progressView.frame.origin.y, width: 2, height: progressView.frame.size.height)
+        sliderRepeatView.trackTintColor = .clear
+        self.insertSubview(sliderRepeatView, aboveSubview: progressView)
     }
     
     func setRepeatEndPoint() {
         let center = CGFloat(progressView.progress) * progressView.frame.size.width
-        let progressWidth = center - repeatProgressView.frame.origin.x + 2
+        let progressWidth = center - sliderRepeatView.frame.origin.x + 2
         
-        repeatProgressView.frame = CGRect(x: repeatProgressView.frame.origin.x, y: progressView.frame.origin.y, width: progressWidth, height: progressView.frame.size.height)
+        sliderRepeatView.frame = CGRect(x: sliderRepeatView.frame.origin.x, y: progressView.frame.origin.y, width: progressWidth, height: progressView.frame.size.height)
         
-        
-        progressView.backgroundColor = .brown
-        progressView.progressTintColor = .clear
-//        progressView.backgroundColor = .brown
+        setRepeatModeUI()
+    }
+
+    
+    func removeRepeatPoint() {
+        sliderRepeatView.removeFromSuperview()
+        setPlayModeUI()
     }
     
+    
+    private func setRepeatModeUI() {
+        progressView.backgroundColor = .brown
+        progressView.progressTintColor = .clear
+    }
+    
+    private func setPlayModeUI() {
+        progressView.tintColor = .blue
+        progressView.trackTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2964201627)
+        progressView.progressTintColor = .blue
+        progressView.backgroundColor = .clear
+    }
+
+    func addBookmarkIndicator() {
+        let center = CGFloat(progressView.progress) * progressView.frame.size.width
+        let bookmarkView = UIView(frame: CGRect(x: center, y: progressView.frame.origin.y, width: 2, height: progressView.frame.size.height))
+        bookmarkView.backgroundColor = .orange
+        self.insertSubview(bookmarkView, aboveSubview: progressView)
+        self.bookmarkIndicators.append(bookmarkView)
+    }
 }

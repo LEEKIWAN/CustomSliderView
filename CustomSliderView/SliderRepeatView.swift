@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VGProgressView: UIProgressView {
+class SliderRepeatView: UIProgressView {
 
     let startView = UIView()
     let endView = UIView()

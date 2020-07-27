@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class ProgressThumbnailView: UIView {    
+class SliderThumbnailView: UIView {    
     
     var isShown: Bool = false {
         didSet {
@@ -72,7 +72,7 @@ class ProgressThumbnailView: UIView {
     }
     
     private func show() {
-        guard let vc = parentViewController as? ViewController else { return }
+        guard let vc = parentViewController as? PlayerControlViewContoller else { return }
         
         UIView.animate(withDuration: 0.1) {
             vc.consWidth.constant = 230
@@ -84,7 +84,7 @@ class ProgressThumbnailView: UIView {
     }
     
     private func hide() {
-        guard let vc = parentViewController as? ViewController else { return }
+        guard let vc = parentViewController as? PlayerControlViewContoller else { return }
         vc.view.layoutIfNeeded()
         
         UIView.animate(withDuration: 0.1) {

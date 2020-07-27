@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Player Control View Contoller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomSliderView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PlayerControlViewContoller" customModule="CustomSliderView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                     <action selector="endPoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uT-bU-rad"/>
                                 </connections>
                             </button>
-                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfA-Vy-dR4" customClass="ProgressThumbnailView" customModule="CustomSliderView" customModuleProvider="target">
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfA-Vy-dR4" customClass="SliderThumbnailView" customModule="CustomSliderView" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="707.5" width="100" height="84.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -65,7 +65,7 @@
                                     <constraint firstAttribute="height" constant="70" id="ihi-4x-djj"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5SS-EZ-gI6" customClass="VGPlayerSlider" customModule="CustomSliderView" customModuleProvider="target">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5SS-EZ-gI6" customClass="PlayerSliderView" customModule="CustomSliderView" customModuleProvider="target">
                                 <rect key="frame" x="8" y="802" width="398" height="31"/>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,6 +125,20 @@
                                     <constraint firstAttribute="height" constant="30" id="fHA-UA-beL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjk-yg-Pwx">
+                                <rect key="frame" x="189" y="837" width="51" height="30"/>
+                                <state key="normal" title="remove"/>
+                                <connections>
+                                    <action selector="onResetRepeatMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fuF-IR-1Tc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-v7-Z4O">
+                                <rect key="frame" x="248" y="837" width="69" height="30"/>
+                                <state key="normal" title="bookmark"/>
+                                <connections>
+                                    <action selector="onAddBookmarkViewTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9k4-DQ-vR1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -136,9 +150,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bvO-3a-bPu" secondAttribute="trailing" priority="1" constant="13" id="52o-p9-4b1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4hw-gw-oVW" secondAttribute="trailing" symbolic="YES" id="5nB-hc-UJ6"/>
                             <constraint firstItem="Xsk-2i-ucI" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="66j-f0-EUQ"/>
+                            <constraint firstItem="Jjk-yg-Pwx" firstAttribute="top" secondItem="4hw-gw-oVW" secondAttribute="top" id="6Hq-pK-K89"/>
+                            <constraint firstItem="nQk-v7-Z4O" firstAttribute="top" secondItem="4hw-gw-oVW" secondAttribute="top" id="9Vg-w0-mP9"/>
                             <constraint firstItem="pga-BI-0Bj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9aM-GW-wk5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rfA-Vy-dR4" secondAttribute="trailing" id="9ah-K3-eLd"/>
                             <constraint firstItem="VBd-gu-aqx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="FCz-qg-oht"/>
+                            <constraint firstItem="nQk-v7-Z4O" firstAttribute="bottom" secondItem="4hw-gw-oVW" secondAttribute="bottom" id="FKj-Rz-7bB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pga-BI-0Bj" secondAttribute="bottom" constant="-234" id="Gq0-cz-lEP"/>
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H4L-eA-qve"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pga-BI-0Bj" secondAttribute="trailing" id="H88-Ty-OE9"/>
@@ -156,8 +173,11 @@
                             <constraint firstItem="5SS-EZ-gI6" firstAttribute="top" secondItem="bvO-3a-bPu" secondAttribute="bottom" constant="10" id="aYf-zI-ERu"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="leading" secondItem="5SS-EZ-gI6" secondAttribute="leading" id="cIH-c8-8hx"/>
                             <constraint firstItem="RkA-kA-Cqv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="cTu-Ao-3Re"/>
+                            <constraint firstItem="Jjk-yg-Pwx" firstAttribute="leading" secondItem="4hw-gw-oVW" secondAttribute="trailing" constant="8" id="ci2-Tg-JVO"/>
+                            <constraint firstItem="Jjk-yg-Pwx" firstAttribute="bottom" secondItem="4hw-gw-oVW" secondAttribute="bottom" id="dqx-h3-rWE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5SS-EZ-gI6" secondAttribute="trailing" constant="10" id="eNV-xE-QDX"/>
                             <constraint firstItem="XN7-fB-p2P" firstAttribute="centerY" secondItem="5SS-EZ-gI6" secondAttribute="centerY" id="ene-kJ-PTs"/>
+                            <constraint firstItem="nQk-v7-Z4O" firstAttribute="leading" secondItem="Jjk-yg-Pwx" secondAttribute="trailing" constant="8" id="eph-7X-wO4"/>
                             <constraint firstItem="4hw-gw-oVW" firstAttribute="centerY" secondItem="e4Y-Bw-5H4" secondAttribute="centerY" id="kyq-gg-6GP"/>
                             <constraint firstItem="cDQ-gJ-osX" firstAttribute="bottom" secondItem="fqZ-9w-aE0" secondAttribute="bottom" id="mAu-0Y-ds3"/>
                             <constraint firstItem="NbO-PU-MDf" firstAttribute="top" secondItem="pga-BI-0Bj" secondAttribute="bottom" id="mvu-1m-p7m"/>

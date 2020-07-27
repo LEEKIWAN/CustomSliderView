@@ -10,12 +10,12 @@
 		8345364D24C9448400606D5B /* BottomButtonsStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8345364C24C9448400606D5B /* BottomButtonsStackView.xib */; };
 		8345364F24C9449200606D5B /* BottomButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345364E24C9449200606D5B /* BottomButtonsStackView.swift */; };
 		8348892724888329009C4113 /* DoubleTapSeekerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348892624888329009C4113 /* DoubleTapSeekerButton.swift */; };
-		839B6272247CFDCC0042DDA1 /* VGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B6271247CFDCC0042DDA1 /* VGProgressView.swift */; };
+		839B6272247CFDCC0042DDA1 /* SliderRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B6271247CFDCC0042DDA1 /* SliderRepeatView.swift */; };
 		83B4BC0624C57321008059B4 /* VerticalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4BC0524C57321008059B4 /* VerticalProgressView.swift */; };
 		83B4BC0824C578EC008059B4 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4BC0724C578EC008059B4 /* UIColor+.swift */; };
 		83C2740124C6CF3600D6DE4E /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2740024C6CF3600D6DE4E /* UIDevice+.swift */; };
 		83C4E90D2480C54F002033BB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 83C4E90C2480C54F002033BB /* SnapKit */; };
-		83C4E90F2480C570002033BB /* ProgressThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */; };
+		83C4E90F2480C570002033BB /* SliderThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4E90E2480C570002033BB /* SliderThumbnailView.swift */; };
 		83C4E9152480DABF002033BB /* BookmarkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C4E9142480DABF002033BB /* BookmarkView.xib */; };
 		83C4E9172480DAD1002033BB /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4E9162480DAD1002033BB /* BookmarkView.swift */; };
 		83C4E9192480E2DD002033BB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4E9182480E2DD002033BB /* UIView+.swift */; };
@@ -24,22 +24,22 @@
 		83C4E9202480ED39002033BB /* BookmarkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C4E91E2480ED39002033BB /* BookmarkCollectionViewCell.xib */; };
 		83EBD567247BBC9600973E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EBD566247BBC9600973E4A /* AppDelegate.swift */; };
 		83EBD569247BBC9600973E4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EBD568247BBC9600973E4A /* SceneDelegate.swift */; };
-		83EBD56B247BBC9600973E4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EBD56A247BBC9600973E4A /* ViewController.swift */; };
-		83EBD56E247BBC9600973E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EBD56C247BBC9600973E4A /* Main.storyboard */; };
+		83EBD56B247BBC9600973E4A /* PlayerControlViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EBD56A247BBC9600973E4A /* PlayerControlViewContoller.swift */; };
+		83EBD56E247BBC9600973E4A /* PlayerControlViewContoller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EBD56C247BBC9600973E4A /* PlayerControlViewContoller.storyboard */; };
 		83EBD570247BBC9900973E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EBD56F247BBC9900973E4A /* Assets.xcassets */; };
 		83EBD573247BBC9900973E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EBD571247BBC9900973E4A /* LaunchScreen.storyboard */; };
-		83EBD585247CA04900973E4A /* VGPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EBD583247CA04900973E4A /* VGPlayerSlider.swift */; };
+		83EBD585247CA04900973E4A /* PlayerSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EBD583247CA04900973E4A /* PlayerSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8345364C24C9448400606D5B /* BottomButtonsStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomButtonsStackView.xib; sourceTree = "<group>"; };
 		8345364E24C9449200606D5B /* BottomButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsStackView.swift; sourceTree = "<group>"; };
 		8348892624888329009C4113 /* DoubleTapSeekerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapSeekerButton.swift; sourceTree = "<group>"; };
-		839B6271247CFDCC0042DDA1 /* VGProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGProgressView.swift; sourceTree = "<group>"; };
+		839B6271247CFDCC0042DDA1 /* SliderRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderRepeatView.swift; sourceTree = "<group>"; };
 		83B4BC0524C57321008059B4 /* VerticalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalProgressView.swift; sourceTree = "<group>"; };
 		83B4BC0724C578EC008059B4 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		83C2740024C6CF3600D6DE4E /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
-		83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressThumbnailView.swift; sourceTree = "<group>"; };
+		83C4E90E2480C570002033BB /* SliderThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderThumbnailView.swift; sourceTree = "<group>"; };
 		83C4E9142480DABF002033BB /* BookmarkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkView.xib; sourceTree = "<group>"; };
 		83C4E9162480DAD1002033BB /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		83C4E9182480E2DD002033BB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -49,12 +49,12 @@
 		83EBD563247BBC9600973E4A /* CustomSliderView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSliderView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EBD566247BBC9600973E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83EBD568247BBC9600973E4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		83EBD56A247BBC9600973E4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		83EBD56D247BBC9600973E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		83EBD56A247BBC9600973E4A /* PlayerControlViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlViewContoller.swift; sourceTree = "<group>"; };
+		83EBD56D247BBC9600973E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PlayerControlViewContoller.storyboard; sourceTree = "<group>"; };
 		83EBD56F247BBC9900973E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83EBD572247BBC9900973E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83EBD574247BBC9900973E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83EBD583247CA04900973E4A /* VGPlayerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGPlayerSlider.swift; sourceTree = "<group>"; };
+		83EBD583247CA04900973E4A /* PlayerSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +107,11 @@
 				83C4E91C2480ED13002033BB /* BookMark */,
 				83EBD566247BBC9600973E4A /* AppDelegate.swift */,
 				83EBD568247BBC9600973E4A /* SceneDelegate.swift */,
-				83EBD56A247BBC9600973E4A /* ViewController.swift */,
-				83C4E90E2480C570002033BB /* ProgressThumbnailView.swift */,
-				83EBD583247CA04900973E4A /* VGPlayerSlider.swift */,
-				839B6271247CFDCC0042DDA1 /* VGProgressView.swift */,
-				83EBD56C247BBC9600973E4A /* Main.storyboard */,
+				83C4E90E2480C570002033BB /* SliderThumbnailView.swift */,
+				83EBD583247CA04900973E4A /* PlayerSliderView.swift */,
+				839B6271247CFDCC0042DDA1 /* SliderRepeatView.swift */,
+				83EBD56A247BBC9600973E4A /* PlayerControlViewContoller.swift */,
+				83EBD56C247BBC9600973E4A /* PlayerControlViewContoller.storyboard */,
 				83EBD56F247BBC9900973E4A /* Assets.xcassets */,
 				83EBD571247BBC9900973E4A /* LaunchScreen.storyboard */,
 				83EBD574247BBC9900973E4A /* Info.plist */,
@@ -190,7 +190,7 @@
 				8345364D24C9448400606D5B /* BottomButtonsStackView.xib in Resources */,
 				83EBD573247BBC9900973E4A /* LaunchScreen.storyboard in Resources */,
 				83EBD570247BBC9900973E4A /* Assets.xcassets in Resources */,
-				83EBD56E247BBC9600973E4A /* Main.storyboard in Resources */,
+				83EBD56E247BBC9600973E4A /* PlayerControlViewContoller.storyboard in Resources */,
 				83C4E9152480DABF002033BB /* BookmarkView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,19 +203,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8348892724888329009C4113 /* DoubleTapSeekerButton.swift in Sources */,
-				83C4E90F2480C570002033BB /* ProgressThumbnailView.swift in Sources */,
-				83EBD56B247BBC9600973E4A /* ViewController.swift in Sources */,
+				83C4E90F2480C570002033BB /* SliderThumbnailView.swift in Sources */,
+				83EBD56B247BBC9600973E4A /* PlayerControlViewContoller.swift in Sources */,
 				83B4BC0624C57321008059B4 /* VerticalProgressView.swift in Sources */,
 				83C4E91B2480E811002033BB /* UISlider+.swift in Sources */,
 				83C2740124C6CF3600D6DE4E /* UIDevice+.swift in Sources */,
-				839B6272247CFDCC0042DDA1 /* VGProgressView.swift in Sources */,
+				839B6272247CFDCC0042DDA1 /* SliderRepeatView.swift in Sources */,
 				83C4E91F2480ED39002033BB /* BookmarkCollectionViewCell.swift in Sources */,
 				83EBD567247BBC9600973E4A /* AppDelegate.swift in Sources */,
 				83C4E9192480E2DD002033BB /* UIView+.swift in Sources */,
 				83EBD569247BBC9600973E4A /* SceneDelegate.swift in Sources */,
 				83B4BC0824C578EC008059B4 /* UIColor+.swift in Sources */,
 				83C4E9172480DAD1002033BB /* BookmarkView.swift in Sources */,
-				83EBD585247CA04900973E4A /* VGPlayerSlider.swift in Sources */,
+				83EBD585247CA04900973E4A /* PlayerSliderView.swift in Sources */,
 				8345364F24C9449200606D5B /* BottomButtonsStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,12 +223,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		83EBD56C247BBC9600973E4A /* Main.storyboard */ = {
+		83EBD56C247BBC9600973E4A /* PlayerControlViewContoller.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				83EBD56D247BBC9600973E4A /* Base */,
 			);
-			name = Main.storyboard;
+			name = PlayerControlViewContoller.storyboard;
 			sourceTree = "<group>";
 		};
 		83EBD571247BBC9900973E4A /* LaunchScreen.storyboard */ = {

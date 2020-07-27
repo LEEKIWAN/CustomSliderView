@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIColor {
-    convenience init(hexFromString:String, alpha:CGFloat = 1.0) {
+    convenience init(hexFromString: String, alpha: CGFloat = 1.0) {
         var cString: String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         var rgbValue: UInt64 = 10066329 //color #999999 if string has wrong format
         

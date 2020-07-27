@@ -47,7 +47,7 @@ class BookmarkView: UIView {
     }
     
     private func show() {
-        guard let vc = parentViewController as? ViewController else { return }
+        guard let vc = parentViewController as? PlayerControlViewContoller else { return }
         
         UIView.animate(withDuration: 0.2) {
             vc.consBookmarkBottomMargin.constant = 0
@@ -58,7 +58,7 @@ class BookmarkView: UIView {
     }
     
     private func hide() {
-        guard let vc = parentViewController as? ViewController else { return }
+        guard let vc = parentViewController as? PlayerControlViewContoller else { return }
         vc.view.layoutIfNeeded()
         
         UIView.animate(withDuration: 0.2) {

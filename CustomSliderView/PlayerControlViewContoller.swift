@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, VGPlayerSliderDelegate {
+class PlayerControlViewContoller: UIViewController, PlayerSliderViewDelegate {
     
     @IBOutlet weak var bookmarkView: BookmarkView!
     
     
-    @IBOutlet weak var thumbnailView: ProgressThumbnailView!
-    @IBOutlet weak var sliderView: VGPlayerSlider!
+    @IBOutlet weak var thumbnailView: SliderThumbnailView!
+    @IBOutlet weak var sliderView: PlayerSliderView!
     @IBOutlet weak var consLeading: NSLayoutConstraint!
     
     @IBOutlet weak var consWidth: NSLayoutConstraint!
@@ -39,15 +39,32 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
         
         brightnessVertical.mode = .brightness
         soundVertical.mode = .sound
-        
     }
+    
+//    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+//        super.willTransition(to: newCollection, with: coordinator)
+//        
+//        coordinator.animate(alongsideTransition: { [unowned self] _ in
+//            if newCollection.verticalSizeClass == .compact {
+//                self.view.backgroundColor = UIColor.red
+//            } else {
+//                self.view.backgroundColor = UIColor.green
+//            }
+//        }) { [unowned self] _ in
+//            self.view.backgroundColor = UIColor.blue
+//        }
+//    }
+    
+    private var windowInterfaceOrientation: UIInterfaceOrientation? {
+         return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+     }
     
     @IBAction func onBookmarkToggleTouched(_ sender: UIButton) {
         bookmarkView.isShown = !bookmarkView.isShown
     }
     
     @IBAction func onCreateStartPoint(_ sender: UIButton) {
-        sliderView.isThumbHidden = !sliderView.isThumbHidden
+//        sliderView.isThumbHidden = !sliderView.isThumbHidden
     }
     
     @IBAction func startPoint(_ sender: UIButton) {
@@ -60,18 +77,24 @@ class ViewController: UIViewController, VGPlayerSliderDelegate {
         
     }
     
+    @IBAction func onResetRepeatMode(_ sender: UIButton) {
+        sliderView.removeRepeatPoint()
+    }
     // MARK : - VGPlayerSliderDelegate
+    @IBAction func onAddBookmarkViewTouched(_ sender: UIButton) {
+        sliderView.addBookmarkIndicator()
+    }
     
-    func vgSliderTouchBegan(slider: VGPlayerSlider) {
+    func sliderTouchBegan(slider: PlayerSliderView) {
         thumbnailView.isShown = true
     }
     
-    func vgSliderValueChanged(slider: VGPlayerSlider, thumbXPoint: CGFloat) {
+    func sliderValueChanged(slider: PlayerSliderView, thumbXPoint: CGFloat) {
         consLeading.constant = thumbXPoint
         thumbnailView.setThumbnail(image: #imageLiteral(resourceName: "test"), time: "00:00")
     }
     
-    func vgSliderTouchEnd(slider: VGPlayerSlider) {
+    func sliderTouchEnd(slider: PlayerSliderView) {
         thumbnailView.isShown = false
     }
     
