@@ -69,8 +69,6 @@ class PlayerSliderView: UISlider {
     }
     
     private func configureSlider() {
-        self.thumbTintColor = .blue
-        
         self.addSubview(progressView)
         self.setPlayModeUI()
         
@@ -80,6 +78,10 @@ class PlayerSliderView: UISlider {
             make.center.equalToSuperview()
             make.height.equalTo(6)
         }
+        
+        let thumbImage = #imageLiteral(resourceName: "VGPlayer_ic_slider_thumb")
+        setThumbImage(thumbImage, for: .normal)
+        setThumbImage(thumbImage, for: .highlighted)
         
         self.addTarget(self, action: #selector(onSliderValueChanged(slider:event:)), for: .valueChanged)
     }
